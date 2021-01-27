@@ -4,14 +4,15 @@
 <div class="container">
     <div class="pull-right">
         <div class="col-md-12">
-            <div class="card">
+            <div class="card" style="background-image: linear-gradient(#EAF2F8, #AAB7B8);">
+                <h6>Cantidad de Registros:  {{ $portas->total() }}</h6>
                 <br>
                 <div class="col-md-4"   >
                 <form action="/search" method="GET">
                 <div class="input-group">
         <input type="search" name="search" class="form-control">
         <span class="input-group-prepend">
-            <button type="submit" class="btn btn-primary">Buscar</button>
+            <button type="submit" class="btn btn-primary">Buscar por Numero</button>
             </span>
         </div>
     </form>
@@ -30,15 +31,15 @@
         <th scope="col">Fecha de venta</th>
         <th scope="col">Numero de contacto</th>
         <th scope="col">Revision</th>
+        <th scope="col">Causal</th>
         <th scope="col">Asesor</th>
         <th colspan="3">Acciones</th>
         </tr>
 </thead>
 
 <tbody>
-@foreach ($porta as $porta)
-     <tr>
-
+            @foreach ($portas as $porta)
+        <tr>
         <td>{{$loop->iteration}}</td>
         <td>{{$porta->numero}}</td>
         <td>{{$porta->documento}}</td>
@@ -48,6 +49,7 @@
         <td>{{$porta->fvc}}</td>
         <td>{{$porta->ncontacto}}</td>
         <td>{{$porta->revisados}}</td>
+         <td>{{$porta->estadorevisado}}</td>
         <td>{{$porta->agente}}</td>
 
         <td>
@@ -55,14 +57,16 @@
                 @csrf
                 @method('DELETE')
 
-        <a href="{{url('/porta/'.$porta->id.'/edit')}}"class="btn btn-warning btn-sm" role="button" aria-pressed="true">Editar</a>
-        <button class="btn btn-danger btn-sm" onclick="return confirm('Borrar?');" type="submit"aria-pressed="true">Borrar</button>
+        <a href="{{url('/porta/'.$porta->id.'/edit')}}" class="btn btn-primary btn-sm" role="button" aria-pressed="true">Editar</a>
+        <button class="btn btn-warning btn-sm" onclick="return confirm('Borrar?');" type="submit"aria-pressed="true">Borrar</button>
        </form>
     </td>
 </tr>
 @endforeach
 </tbody>
 </table>
+
+{{ $portas->links() }}
 </div>
 
 <p>

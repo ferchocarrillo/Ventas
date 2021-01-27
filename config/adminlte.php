@@ -46,6 +46,7 @@ return [
     */
 
     'logo' => '<b>Gestor</b> de </b>Ventas',
+    /*'logo_img' => 'theme\images\icon\icon-navidad.png',*///solo aplica para navidad
     'logo_img' => 'theme\images\icon\logo-mini.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -245,12 +246,12 @@ return [
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
-        [
+       /* [
             'text' => 'Registro de Tiempos',
             'route'  => 'registro',
             'topnav_right'  => FALSE,
             'icon' => 'fas fa-hourglass-half',
-        ],
+        ],*/
         [
             'text' => 'Dashboard',
             'url'  => 'home',
@@ -287,12 +288,17 @@ return [
             'icon'    => 'fas fa-frown',
             'icon_color' => 'cyan'
     ],
+            ['text'    => 'Portabilidad Digital',
+            'url'     => 'portadigital\create',
+            'icon'    => 'fas fa-calculator',
+            'icon_color' => 'green'
+],
 
 ],
 ],
 [
     'text' => 'Backoffice',
-    'icon' => 'fab fa-wpforms',
+    'icon' => 'fas fa-eye',
 
     'submenu' => [
 
@@ -316,9 +322,29 @@ return [
     'icon'    => 'fas fa-file-export',
     'icon_color' => 'purple'
 ],
+    ['text'    => 'Portabilidad Digital',
+    'url'     => 'portadigital',
+    'icon'    => 'fas fa-calculator',
+    'icon_color' => 'green'
 ],
+],
+],
+[   'text' => 'Planes',
+    'icon' => 'fas fa-hand-holding-usd',
+    'submenu' => [
+    ['text'    => 'Porta, Digital, Upgrade, Fija',
+    'url'     => 'portaplnew',
+    'icon'    => 'fas fa-hand-spock',
+    'icon_color' => 'green'
+],
+    ['text'    => 'Prepost',
+    'url'     => 'prepostplnew',
+    'icon'    => 'far fa-hand-spock',
+    'icon_color' => 'grey'
 ],
 
+],
+],
 
 
         ['header' => 'ADMINISTRATIVO'],

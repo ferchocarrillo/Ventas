@@ -7,19 +7,12 @@
 <div class="container">
     <div class="pull-right">
         <div class="col-md-12">
-            <div class="card">
-
-
-                <body input type = "time" onload="HoraActual(<?php echo date("H").", ".date("i").", ".date("s"); ?>)">
-                <div id="contenedor_reloj"></div>
-                <link rel="shortcut icon" href="home">
-                <img src="\theme\images\movistar.jpg"  align= "center" height="90" width="150">
+            <div class="card" style="background-image: linear-gradient(#EAF2F8, #AAB7B8);">
             </body>
-
-            <h1 align= "center" >Editor de Gestion Prepost</h1>
-
-
-
+            <center style="background-image: linear-gradient(#EAF2F8, #AAB7B8);">
+                <img src="\theme\images\pngegg.png" float="left" height="120" width="300">
+                <h3 aline="center">Editor de Gestion Prepost</h3>
+            </center>
 <form name="f1" action="{{ url('/prepost/'.$prepost->id)}}" method="POST" enctype="multipart/form-data" class="form-horizontal">
     @csrf
     @method('PATCH')
@@ -42,9 +35,9 @@
                placeholder="Nombres"
                name="nombres"
                value="{{ old('nombres' , $prepost->nombres)}}">
+        </div>
 
-          </div>
-          <div class="form-group col-md-6">
+        <div class="form-group col-md-6">
             <label for="documento">Documento</label>
                <input type="number"
                class="form-control"
@@ -52,8 +45,8 @@
                placeholder="Documento"
                name="documento"
                value="{{ old('documento' , $prepost->documento)}}">
-
           </div>
+
           <div class="form-group col-md-6">
             <label for="fexpedicion">Fecha de expedicion</label>
                <input type="date"
@@ -63,6 +56,7 @@
                name="fexpedicion"
                value="{{ old('fexpedicion' , $prepost->fexpedicion)}}">
           </div>
+
           <div class="form-group col-md-6">
             <label for="tipocliente">Tipo cliente</label>
                <input type="text"
@@ -72,6 +66,7 @@
                name="tipocliente"
                value="{{ old('tipocliente' , $prepost->tipocliente)}}">
           </div>
+
           <div class="form-group col-md-6">
             <label for="correo">Correo</label>
                <input type="text"
@@ -101,6 +96,7 @@
                name="Ciudad"
                value="{{ old('ciudad' , $prepost->ciudad)}}">
           </div>
+
           <div class="form-group col-md-6">
             <label for="barrio">Barrio</label>
                <input type="text"
@@ -110,6 +106,7 @@
                name="Barrio"
                value="{{ old('barrio' , $prepost->barrio)}}">
           </div>
+
           <div class="form-group col-md-6">
             <label for="direccion">Direccion</label>
                <input type="text"
@@ -119,6 +116,7 @@
                name="Direccion"
                value="{{ old('direccion' , $prepost->direccion)}}">
           </div>
+
           <div class="form-group col-md-6">
                <label for="corte">Corte</label>
                <input type="number" class="form-control"
@@ -127,6 +125,7 @@
                name="corte"
                value="{{ old('corte', $prepost->corte)}}">
           </div>
+
           <div class="form-group col-md-6">
             <label for="planventa">Plan venta</label>
             <input type="number" class="form-control"
@@ -135,6 +134,7 @@
             name="planventa"
             value="{{ old('planventa', $prepost->planventa)}}">
            </div>
+
            <div class="form-group col-md-6">
             <label for="activacion">Activacion</label>
             <input type="text" class="form-control"
@@ -143,6 +143,7 @@
             name="activacion"
             value="{{ old('activacion', $prepost->activacion)}}">
            </div>
+
            <div class="form-group col-md-6">
             <label for="token">Token</label>
             <input type="number" class="form-control"
@@ -151,7 +152,8 @@
             name="token"
             value="{{ old('token', $prepost->token)}}">
            </div>
-           <div class="form-group col-md-6">
+
+           <div class="form-group col-md-12">
             <label for="observacion">Observacion</label>
             <input type="text" class="form-control"
             id="observaciones"
@@ -160,29 +162,27 @@
             value="{{ old('observaciones', $prepost->observaciones)}}">
            </div>
 
+           <div class="form-group col-md-12">
+            <label for="revisados">Revision</label>
+
+             <select name="revisados" id="revisados" class="form-control"  required>
+                <option value="">Revisión</option>
+                @foreach($revisadoses as $revisados)
+                    <option value="{{ $revisados->estado}}">{{ $revisados->estado }}</option>
+                @endforeach
+          </select>
+            </div>
+
+            <div class="form-group col-md-12">
+             <label for="estadorevisados">Estado de la revision</label>
+             <select name="estadorevisado" id="estadorevisado" class="form-control" placeholder="Estado de la revisión" required></select>
+         </div>
 
 
-
-    <div class="form-group col-md-12">
-        <label for="revisado">Revision</label>
-        <select name=revisado onchange="cambia_estadorevisado()" class="form-control">
-
-    <option value="0" selected>Seleccione...
-    <option value="1">Ok
-    <option value="2">Recuperar
-    <option value="3">Perdida
-    </select>
-    </div>
-
-    <div class="form-group col-md-12">
-    <label for="estadorevisado">Estado de la revision</label>
-    <select name=estadorevisado class="form-control">
-    <option value="-">-
-    </select>
     <div class="form-group col-md-12">
         <textarea class="form-control"  id ="obs2" name="obs2" rows="3" placeholder="Observaciones BackOficce"></textarea>
         </div>
-    </div>
+
 
 
     <input class="btn btn-lg btn-primary" type="submit" value="EDITAR">
@@ -193,49 +193,7 @@
     </div>
 
     </form>
-      <script>
-      var estadorevisados_1=new Array("Ok");
-      var estadorevisados_2=new Array("Escoja una opcion","Cliente en mora","Error Aplicativo","Recahzo PCO","Cliente no Paso Confronta","Pendiente Ingreso");
-      var estadorevisados_3=new Array("Escoja una opcion","Rechazo PCO","Cliente Tiene una Solicitud Abierta");
 
-
-      var todasestadorevisados = [
-        [],
-        estadorevisados_1,
-        estadorevisados_2,
-        estadorevisados_3,
-
-      ];
-
-      function cambia_estadorevisado(){
-           //tomo el valor del select del revisado elegido
-           var revisado
-           revisado = document.f1.revisado[document.f1.revisado.selectedIndex].value
-           //miro a ver si el revisado está definido
-           if (revisado != 0) {
-              //si estaba definido, entonces coloco las opciones de la estadorevisado correspondiente.
-              //selecciono el array de estadorevisado adecuado
-              mis_estadorevisados=todasestadorevisados[revisado]
-              //calculo el numero de estadorevisados
-              num_estadorevisados = mis_estadorevisados.length
-              //marco el número de estadorevisados en el select
-              document.f1.estadorevisado.length = num_estadorevisados
-              //para cada estadorevisado del array, la introduzco en el select
-              for(i=0;i<num_estadorevisados;i++){
-                 document.f1.estadorevisado.options[i].value=mis_estadorevisados[i]
-                 document.f1.estadorevisado.options[i].text=mis_estadorevisados[i]
-              }
-           }else{
-              //si no había estadorevisado seleccionada, elimino las estadorevisados del select
-              document.f1.estadorevisado.length = 1
-              //coloco un guión en la única opción que he dejado
-              document.f1.estadorevisado.options[0].value = "-"
-              document.f1.estadorevisado.options[0].text = "-"
-           }
-           //marco como seleccionada la opción primera de estadorevisado
-           document.f1.estadorevisado.options[0].selected = true
-    }
-    </script>
 
 
     </div>
@@ -263,7 +221,30 @@
     )
     </script>
     @stop
+    <script>
+        $(document).ready(function() {
+             $('#revisados').on('change', function(e) {
+                 var id = $('#revisados').val();
+                 $.ajax({
 
+                     url: "{{ route('Revisado')}}",
+                     data: "id="+id+"&_token={{ csrf_token()}}",
+                     dataType: "json",
+                     method: "POST",
+                     success: function(result)
+                     {
+
+                         $('#estadorevisado').empty();
+                         $('#estadorevisado').append("<option value=''>Escoja una Opcion</option>");
+                         $.each(result, function(index,value){
+
+                             $('#estadorevisado').append("<option value='"+value.estado+"'>"+value.estado+"</option>");
+                         });
+                     }
+                 });
+             });
+         });
+     </script>
 
 
     @endsection

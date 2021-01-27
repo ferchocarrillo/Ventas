@@ -7,32 +7,27 @@
 <div class="container">
     <div class="pull-right">
         <div class="col-md-12">
-            <div class="card">
-
-
-                <body input type = "time" onload="HoraActual(<?php echo date("H").", ".date("i").", ".date("s"); ?>)">
-                <div id="contenedor_reloj"></div>
-                <link rel="shortcut icon" href="home">
-                <img src="\theme\images\movistar.jpg"  align= "center" height="90" width="150">
+            <div class="card" style="background-image: linear-gradient(#EAF2F8, #AAB7B8);">
             </body>
+            <center style="background-image: linear-gradient(#EAF2F8, #AAB7B8);">
+                <img src="\theme\images\pngegg.png" float="left" height="120" width="300">
+                <h3 aline="center">Editar Gestion de Portabilidad</h3>
+            </center>
 
-            <h1 align= "center" >Editor de Gestion Portabilidad</h1>
 
 
-
-<form name="f1" action="{{ url('/porta/'.$porta->id)}}" method="POST" enctype="multipart/form-data" class="form-horizontal">
+<form name="f1" action="{{ url('/porta/'.$portas->id)}}" method="POST" enctype="multipart/form-data" class="form-horizontal">
     @csrf
     @method('PATCH')
 
-    <div class="form-row">
+   <div class="form-row">
    <div class="form-group col-md-6">
-       <label for="number">Numero</label>
+        <label for="number">Numero</label>
         <input type="number" class="form-control"
         id="numero"
         placeholder="Numero"
         name="numero"
-        value="{{ old('numero', $porta->numero)}}">
-
+        value="{{ old('numero', $portas->numero)}}">
    </div>
 
   <div class="form-group col-md-6">
@@ -42,7 +37,7 @@
        id="documento"
        placeholder="Documento"
        name="documento"
-       value="{{ old('documento' , $porta->documento)}}">
+       value="{{ old('documento' , $portas->documento)}}">
 
   </div>
   <div class="form-group col-md-6">
@@ -52,7 +47,7 @@
        id="nombres"
        placeholder="Nombres"
        name="nombres"
-       value="{{ old('nombres' , $porta->nombres)}}">
+       value="{{ old('nombres' , $portas->nombres)}}">
 
   </div>
   <div class="form-group col-md-6">
@@ -62,7 +57,7 @@
        id="apellidos"
        placeholder="Apellidos"
        name="apellidos"
-       value="{{ old('apellidos' , $porta->apellidos)}}">
+       value="{{ old('apellidos' , $portas->apellidos)}}">
 
   </div>
   <div class="form-group col-md-6">
@@ -72,7 +67,7 @@
        id="correo"
        placeholder="Correo"
        name="correo"
-       value="{{ old('correo' , $porta->correo)}}">
+       value="{{ old('correo' , $portas->correo)}}">
   </div>
 
   <div class="form-group col-md-6">
@@ -82,7 +77,7 @@
        id="departamento"
        placeholder="Departamento"
        name="departamento"
-       value="{{ old('departamento' , $porta->departamento)}}">
+       value="{{ old('departamento' , $portas->departamento)}}">
   </div>
 
   <div class="form-group col-md-6">
@@ -92,7 +87,7 @@
        id="ciudad"
        placeholder="ciudad"
        name="Ciudad"
-       value="{{ old('ciudad' , $porta->ciudad)}}">
+       value="{{ old('ciudad' , $portas->ciudad)}}">
   </div>
   <div class="form-group col-md-6">
     <label for="barrio">Barrio</label>
@@ -101,7 +96,7 @@
        id="barrio"
        placeholder="barrio"
        name="Barrio"
-       value="{{ old('barrio' , $porta->barrio)}}">
+       value="{{ old('barrio' , $portas->barrio)}}">
   </div>
   <div class="form-group col-md-6">
     <label for="direccion">Direccion</label>
@@ -110,7 +105,7 @@
        id="direccion"
        placeholder="direccion"
        name="Direccion"
-       value="{{ old('direccion' , $porta->direccion)}}">
+       value="{{ old('direccion' , $portas->direccion)}}">
   </div>
   <div class="form-group col-md-6">
     <label for="nip">Nip</label>
@@ -119,7 +114,7 @@
        id="nip"
        placeholder="Nip"
        name="nip"
-       value="{{ old('nip' , $porta->nip)}}">
+       value="{{ old('nip' , $portas->nip)}}">
   </div>
   <div class="form-group col-md-6">
     <label for="tipocliente">Tipo cliente</label>
@@ -128,7 +123,7 @@
        id="tipocliente"
        placeholder="tipo cliente"
        name="tipocliente"
-       value="{{ old('tipocliente' , $porta->tipocliente)}}">
+       value="{{ old('tipocliente' , $portas->tipocliente)}}">
   </div>
   <div class="form-group col-md-6">
     <label for="planadquiere">Plan adquiere</label>
@@ -137,7 +132,7 @@
        id="planadquiere"
        placeholder="plan adquiere"
        name="planadquiere"
-       value="{{ old('planadquiere' , $porta->planadquiere)}}">
+       value="{{ old('planadquiere' , $portas->planadquiere)}}">
   </div>
   <div class="form-group col-md-6">
     <label for="ncontacto">Numero de contacto</label>
@@ -146,7 +141,7 @@
        id="ncontacto"
        placeholder="numero de contacto"
        name="ncontacto"
-       value="{{ old('ncontacto' , $porta->ncontacto)}}">
+       value="{{ old('ncontacto' , $portas->ncontacto)}}">
   </div>
   <div class="form-group col-md-6">
     <label for="imei">Imei</label>
@@ -155,7 +150,7 @@
        id="imei"
        placeholder="Imei"
        name="imei"
-       value="{{ old('imei' , $porta->imei)}}">
+       value="{{ old('imei' , $portas->imei)}}">
   </div>
   <div class="form-group col-md-6">
     <label for="fvc">FVC</label>
@@ -164,7 +159,7 @@
        id="fvc"
        placeholder="fvc"
        name="fvc"
-       value="{{ old('fvc' , $porta->fvc)}}">
+       value="{{ old('fvc' , $portas->fvc)}}">
   </div>
   <div class="form-group col-md-6">
     <label for="fentrega">Fecha de entrega</label>
@@ -173,7 +168,7 @@
        id="fentrega"
        placeholder="Fecha de entrega"
        name="fentrega"
-       value="{{ old('fentrega' , $porta->fentrega)}}">
+       value="{{ old('fentrega' , $portas->fentrega)}}">
   </div>
   <div class="form-group col-md-6">
     <label for="fexpedicion">Fecha de expedicion</label>
@@ -182,7 +177,7 @@
        id="fexpedicion"
        placeholder="Fecha de expedicion"
        name="fexpedicion"
-       value="{{ old('fexpedicion' , $porta->fexpedicion)}}">
+       value="{{ old('fexpedicion' , $portas->fexpedicion)}}">
   </div>
   <div class="form-group col-md-6">
     <label for="fnacimiento">Fecha de nacimiento</label>
@@ -191,7 +186,7 @@
        id="fnacimiento"
        placeholder="Fecha de nacimiento"
        name="fnacimiento"
-       value="{{ old('fnacimiento' , $porta->fnacimiento)}}">
+       value="{{ old('fnacimiento' , $portas->fnacimiento)}}">
   </div>
   <div class="form-group col-md-6">
     <label for="origen">Origen de la migracion</label>
@@ -200,7 +195,7 @@
        id="origen"
        placeholder="Origen"
        name="origen"
-       value="{{ old('origen' , $porta->origen)}}">
+       value="{{ old('origen' , $portas->origen)}}">
   </div>
   <div class="form-group col-md-6">
     <label for="ngrabacion">Numero de grabacion</label>
@@ -209,7 +204,7 @@
        id="ngrabacion"
        placeholder="Numero de grabacion"
        name="ngrabacion"
-       value="{{ old('ngrabacion' , $porta->ngrabacion)}}">
+       value="{{ old('ngrabacion' , $portas->ngrabacion)}}">
   </div>
   <div class="form-group col-md-12">
     <label for="ngrabacion">Observaciones</label>
@@ -218,17 +213,32 @@
     id ="observaciones"
     name="observaciones"
     placeholder="Observaciones"
-    value="{{ old('observaciones' , $porta->observaciones)}}">
+    value="{{ old('observaciones' , $portas->observaciones)}}">
+   </div>
+   <div class="form-group col-md-12">
+   <label for="revisados">Revision</label>
+
+    <select name="revisados" id="revisados" class="form-control"  required>
+       <option value="">Revisión</option>
+       @foreach($revisadoses as $revisados)
+           <option value="{{ $revisados->estado}}">{{ $revisados->estado }}</option>
+       @endforeach
+ </select>
    </div>
 
    <div class="form-group col-md-12">
+    <label for="estadorevisados">Estado de la revision</label>
+    <select name="estadorevisado" id="estadorevisado" class="form-control" placeholder="Estado de la revisión" required></select>
+</div>
+
+   {{--<div class="form-group col-md-12">
     <label for="revisados">Revision</label>
     <select name=revisados onchange="cambia_estadorevisado()" class="form-control">
 
 <option value="0" selected>Seleccione...
-<option value="1">Ok
-<option value="2">Recuperar
-<option value="3">Perdida
+<option value="Ok">Ok
+<option value="Recuperar">Recuperar
+<option value="Perdida">Perdida
 </select>
 </div>
 
@@ -237,10 +247,12 @@
 <select name=estadorevisado class="form-control">
 <option value="-">-
 </select>
+
+</div>--}}
 <div class="form-group col-md-12">
     <textarea class="form-control"  id ="obs2" name="obs2" rows="3" placeholder="Observaciones BackOficce"></textarea>
     </div>
-</div>
+
 
 
 <input class="btn btn-lg btn-primary" type="submit" value="EDITAR">
@@ -363,5 +375,29 @@ Swal.fire(
         });
     });
 </script>
+<script>
+    $(document).ready(function() {
+         $('#revisados').on('change', function(e) {
+             var id = $('#revisados').val();
+             $.ajax({
+
+                 url: "{{ route('Revisado')}}",
+                 data: "id="+id+"&_token={{ csrf_token()}}",
+                 dataType: "json",
+                 method: "POST",
+                 success: function(result)
+                 {
+
+                     $('#estadorevisado').empty();
+                     $('#estadorevisado').append("<option value=''>Escoja una Opcion</option>");
+                     $.each(result, function(index,value){
+
+                         $('#estadorevisado').append("<option value='"+value.estado+"'>"+value.estado+"</option>");
+                     });
+                 }
+             });
+         });
+     });
+ </script>
 @endsection
 

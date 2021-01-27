@@ -7,6 +7,20 @@
             <div class="card">
                 <div class="card-header"><h2>Lista de Usuarios</h2></div>
 
+
+                <p align="right">
+                    <div class="col-md-4">
+                <form action="/searchusers" method="GET">
+                <div class="input-group">
+        <input type="searchusers" name="searchusers" class="form-control">
+        <span class="input-group-prepend">
+            <button type="submit" class="btn btn-primary">Buscar por Cedula</button>
+            </span>
+        </div>
+    </form>
+</div>
+</p>
+
                 <div class="card-body">
 
 

@@ -14,7 +14,7 @@ class Porta extends Model
 {
     protected $fillable = [
 
-        'numero','documento','nombres', 'apellidos','correo','departamento','ciudad','barrio','direccion', 'nip','tipocliente','planadquiere','ncontacto','imei','fvc','fentrega','fexpedicion','fnacimiento','origen','ngrabacion','observacion','agente','revisados','obs2','backoffice'];
+        'departamento','tipocliente','planadquiere','origen','revisados'];
     public function Porta()
 
     {

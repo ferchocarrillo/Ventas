@@ -4,6 +4,8 @@ namespace App\Exports;
 
 use App\Prepost;
 use Maatwebsite\Excel\Concerns\FromCollection;
+use Maatwebsite\Excel\Concerns\FromQuery;
+use Maatwebsite\Excel\Concerns\WithHeadings;
 
 class PrepostExport implements FromCollection
 {
@@ -14,4 +16,6 @@ class PrepostExport implements FromCollection
     {
         return Prepost::all();
     }
+
+
 }

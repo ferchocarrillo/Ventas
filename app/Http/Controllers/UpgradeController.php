@@ -6,7 +6,7 @@ use App\Upgrade;
 use App\Departamentos;
 use App\TipoCliente;
 use App\Origen;
-use App\Revisiones;
+use App\Revisados;
 use App\Corte;
 use App\Planadquiere;
 use App\Planhistorico;
@@ -26,10 +26,10 @@ class UpgradeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
+
     {
-        $upgrade['upgrade']=Upgrade::paginate(10);
-        $upgrade['upgrade']=Upgrade::OrderBy('revisado','asc')->get();
-        return view('upgrade.index',$upgrade);
+    $upgrades = Upgrade::orderBy('revisados', 'asc')->paginate(10);
+        return view('upgrade.index',compact('upgrades'));
 
     }
 
@@ -59,11 +59,11 @@ class UpgradeController extends Controller
 
         public function searchupgrade( Request $request)
         {
-            $upgrade = Upgrade::all();
+            $upgrades = Upgrade::all();
 
             $searchupgrade = $request->get('searchupgrade');
-            $upgrade= Upgrade::firstOrNew()->where('numero', 'like', '%'.$searchupgrade.'%')->paginate(5);
-            return view('upgrade.index', ['upgrade' => $upgrade]);
+            $upgrades= Upgrade::firstOrNew()->where('numero', 'like', '%'.$searchupgrade.'%')->paginate(5);
+            return view('upgrade.index', ['upgrades' => $upgrades]);
         }
     /**
      * Store a newly created resource in storage.
@@ -80,6 +80,7 @@ class UpgradeController extends Controller
             $upgrade = new Upgrade();
             $upgrade->nombres             = $request ->nombres;
             $upgrade->documento           = $request ->documento;
+            $upgrade->correo              = $request ->correo;
             $upgrade->fventa              = $request ->fventa;
             $upgrade->numero              = $request ->numero;
             $upgrade->corte               = $request ->corte;
@@ -89,7 +90,7 @@ class UpgradeController extends Controller
             $upgrade->ngrabacion          = $request ->ngrabacion;
             $upgrade->observacion         = $request ->observacion;
             $upgrade->agente              = $user_id.','.$user_nombre;
-            $upgrade->revisado            = $request ->revisado;
+            $upgrade->revisados           = $request ->revisados;
             $upgrade->estadorevisado      = $request ->estadorevisado;
             $upgrade->obs2                = $request ->obs2;
             $upgrade->backoffice          = $request ->$user_id.','.$user_nombre;
@@ -122,7 +123,7 @@ class UpgradeController extends Controller
         $tipoCliente = TipoCliente::all();
         $planadquiere = Planadquiere::all();
         $origen = Origen::all();
-        $revisiones = Revisiones::all();
+        $revisadoses = Revisados::all();
         $usuarios = User::all();
 
 
@@ -131,7 +132,7 @@ class UpgradeController extends Controller
 
 
        $upgrade=Upgrade::findOrFail($id);
-        return view('upgrade.edit',compact('upgrade','depto','revisiones','tipoCliente','origen','planadquiere', 'usuarios'));
+        return view('upgrade.edit',compact('upgrade','depto','revisadoses','tipoCliente','origen','planadquiere', 'usuarios'));
 
     }
 
@@ -149,11 +150,11 @@ class UpgradeController extends Controller
         $usuarios = User::all();
         $user_id = Auth::user()->id;
         $user_nombre = Auth::user()->name;
-
+        $revisadoses = Revisados::all();
         $datosUpgrade=request()->except(['_token','_method']);
         Upgrade::where('id','=',$id)->update($datosUpgrade);
         $upgrade=Upgrade::findOrFail($id);
-        return view('upgrade.edit',compact('upgrade', 'usuarios'));
+        return view('upgrade.edit',compact('upgrade', 'usuarios','revisadoses'));
     }
 
     /**

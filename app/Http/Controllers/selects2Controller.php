@@ -1,21 +1,23 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Revisados;
+use App\EstadoRevisado;
 use Illuminate\Http\Request;
 
 class selects2Controller extends Controller
 {
-    public function Revisado(Request $request){
+    public function Revisados(Request $request){
 
-        $revisado = Revisados::where('id_rev', $request->id)->get();
+        $revisadoses = EstadoRevisado::where('id_revision', $request->id)->get();
         $html='';
-        foreach ($revisado as $key) {
+        foreach ($revisadoses as $key) {
             $html.="<option value='".$key['id_estadorevisado']."'>".$key['estado']."</option>";
         }
 
 
-            return response()->json($revisado) ;
+            return response()->json($revisadoses) ;
 
     }
 }
+
+

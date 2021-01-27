@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\JhonatanPermission\Models\Porta;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\JhonatanPermission\Models\Permission;
 use Illuminate\Support\Facades\Gate;
-use App\JhonatanPermission\Models\Porta;
 use Illuminate\Http\Request;
 use App\Departamentos;
-use App\Tipocliente;
+use App\TipoCliente;
 use App\Origen;
 use App\Estadorevisado;
 use App\Velocidad;
@@ -24,6 +24,7 @@ use App\Producto;
 use App\Planadquiere;
 use App\Corte;
 use App\Revisados;
+
 use App\User;
 use stdClass;
 use Maatwebsite\Excel\Facades\Excel;
@@ -41,9 +42,16 @@ class PortaController extends Controller
     public function index()
     {
 
-        $porta['porta']=Porta::paginate(10);
-        $porta['porta']=Porta::OrderBy('revisados','asc')->get();
-        return view('porta.index',$porta);
+        $depto = Departamentos::all();
+        $tipoCliente = TipoCliente::all();
+        $planadquiere = Planadquiere::all();
+        $origen = Origen::all();
+        $usuarios = User::all();
+
+        $portas = Porta::orderBy('revisados', 'asc')->paginate(10);
+        return view('porta.index',compact('portas','depto','tipoCliente','origen','planadquiere', 'usuarios'));
+
+
 
     }
 
@@ -66,11 +74,11 @@ class PortaController extends Controller
 
     public function search( Request $request)
     {
-        $porta = Porta::all();
+        $portas = Porta::all();
 
         $search = $request->get('search');
-        $porta= Porta::firstOrNew()->where('numero', 'like', '%'.$search.'%')->paginate(5);
-        return view('porta.index', ['porta' => $porta]);
+        $portas= Porta::firstOrNew()->where('numero', 'like', '%'.$search.'%')->paginate(5);
+        return view('porta.index', ['portas' => $portas]);
     }
 
 
@@ -80,40 +88,40 @@ class PortaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request , Porta $porta)
+    public function store(Request $request , Porta $portas)
     {
 
         $user_id = Auth::user()->id;
         $user_nombre = Auth::user()->name;
 
-        $porta = new Porta();
-        $porta->numero          = $request ->numero;
-        $porta->documento       = $request ->documento;
-        $porta->nombres         = $request ->nombres;
-        $porta->apellidos       = $request ->apellidos;
-        $porta->correo          = $request ->correo;
-        $porta->departamento    = $request ->departamento;
-        $porta->ciudad          = $request ->id_ciudad;
-        $porta->barrio          = $request ->barrio;
-        $porta->direccion       = $request ->direccion;
-        $porta->nip             = $request ->nip;
-        $porta->tipocliente     = $request ->tipocliente;
-        $porta->planadquiere    = $request ->planadquiere;
-        $porta->ncontacto       = $request ->ncontacto;
-        $porta->imei            = $request ->imei;
-        $porta->fvc             = $request ->fvc;
-        $porta->fentrega        = $request ->fentrega;
-        $porta->fexpedicion     = $request ->fexpedicion;
-        $porta->fnacimiento     = $request ->fnacimiento;
-        $porta->origen          = $request ->origen;
-        $porta->ngrabacion      = $request ->ngrabacion;
-        $porta->observaciones   = $request ->observaciones;
-        $porta->agente          = $user_id.','.$user_nombre;
-        $porta->revisados        = $request ->revisados;
-        $porta->estadorevisados  = $request ->estadorevisados;
-        $porta->obs2            = $request ->obs2;
-        $porta->backoffice      = $request ->$user_id.','.$user_nombre;
-        $porta->save();
+        $portas = new Porta();
+        $portas->numero          = $request ->numero;
+        $portas->documento       = $request ->documento;
+        $portas->nombres         = $request ->nombres;
+        $portas->apellidos       = $request ->apellidos;
+        $portas->correo          = $request ->correo;
+        $portas->departamento    = $request ->departamento;
+        $portas->ciudad          = $request ->id_ciudad;
+        $portas->barrio          = $request ->barrio;
+        $portas->direccion       = $request ->direccion;
+        $portas->nip             = $request ->nip;
+        $portas->tipocliente     = $request ->tipocliente;
+        $portas->planadquiere    = $request ->planadquiere;
+        $portas->ncontacto       = $request ->ncontacto;
+        $portas->imei            = $request ->imei;
+        $portas->fvc             = $request ->fvc;
+        $portas->fentrega        = $request ->fentrega;
+        $portas->fexpedicion     = $request ->fexpedicion;
+        $portas->fnacimiento     = $request ->fnacimiento;
+        $portas->origen          = $request ->origen;
+        $portas->ngrabacion      = $request ->ngrabacion;
+        $portas->observaciones   = $request ->observaciones;
+        $portas->agente          = $user_id.','.$user_nombre;
+        $portas->revisados       = $request ->revisados;
+        $portas->estadorevisado  = $request ->estadorevisado;
+        $portas->obs2            = $request ->obs2;
+        $portas->backoffice      = $user_id.','.$user_nombre;
+        $portas->save();
 
 
         return back();
@@ -122,26 +130,21 @@ class PortaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Porta $porta
+     * @param  \App\Porta $portas
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $porta = Porta::all();
+        $portas = Porta::all();
         $depto = Departamentos::all();
         $tipoCliente = TipoCliente::all();
         $planadquiere = Planadquiere::all();
         $origen = Origen::all();
         $revisado = Revisados::all();
         $usuarios = User::all();
-
-
         $this->authorize('haveaccess','porta.edit');
-
-
-
-       $porta=Porta::findOrFail($id);
-        return view('porta.edit',compact('porta','depto','revisado','tipoCliente','origen','planadquiere', 'usuarios'));
+        $portas=Porta::findOrFail($id);
+        return view('porta.edit',compact('portas','depto','revisado','tipoCliente','origen','planadquiere', 'usuarios'));
     }
 
     /**
@@ -152,25 +155,17 @@ class PortaController extends Controller
      */
     public function edit($id)
 
-
     {
-
-        $porta = Porta::all();
+        $portas = Porta::all();
         $depto = Departamentos::all();
         $tipoCliente = TipoCliente::all();
         $planadquiere = Planadquiere::all();
         $origen = Origen::all();
-        $revisado = Revisados::all();
+        $revisadoses = Revisados::all();
         $usuarios = User::all();
-
-
         $this->authorize('haveaccess','porta.edit');
-
-
-
-       $porta=Porta::findOrFail($id);
-        return view('porta.edit',compact('porta','depto','revisado','tipoCliente','origen','planadquiere', 'usuarios'));
-
+        $portas=Porta::findOrFail($id);
+        return view('porta.edit',compact('portas','depto','revisadoses','tipoCliente','origen','planadquiere', 'usuarios'));
     }
 
     /**
@@ -186,11 +181,11 @@ class PortaController extends Controller
         $usuarios = User::all();
         $user_id = Auth::user()->id;
         $user_nombre = Auth::user()->name;
-
+        $revisadoses = Revisados::all();
         $datosPorta=request()->except(['_token','_method']);
         Porta::where('id','=',$id)->update($datosPorta);
-        $porta=Porta::findOrFail($id);
-        return view('porta.edit',compact('porta', 'usuarios'));
+        $portas=Porta::findOrFail($id);
+        return view('porta.edit',compact('portas','revisadoses', 'usuarios'));
     }
 
     /**
@@ -210,14 +205,14 @@ class PortaController extends Controller
  /**
      * Display the specified resource.
      *
-     * @param  \App\Porta $porta
+     * @param  \App\Porta $portas
      * @return \Illuminate\Http\Response
      */
         public function view ($id)
 
 {
 
-    $porta = Porta::all();
+    $portas = Porta::all();
         $depto = Departamentos::all();
         $tipoCliente = TipoCliente::all();
         $planadquiere = Planadquiere::all();
@@ -230,8 +225,8 @@ class PortaController extends Controller
 
 
 
-       $porta=Porta::findOrFail($id);
-        return view('porta.edit',compact('porta','depto','revisado','tipoCliente','origen','planadquiere', 'usuarios'));
+       $portas=Porta::findOrFail($id);
+        return view('porta.edit',compact('portas','depto','revisado','tipoCliente','origen','planadquiere', 'usuarios'));
 }
 
 public function exportExcel()

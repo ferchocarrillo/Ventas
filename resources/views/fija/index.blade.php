@@ -4,14 +4,14 @@
 <div class="container">
     <div class="pull-right">
         <div class="col-md-12">
-            <div class="card">
-                <br>
-                <div class="col-md-4"   >
+            <div class="card" style="background-image: linear-gradient(#EAF2F8, #AAB7B8);">
+                <h6>Cantidad de Registros:  {{ $fijas->total() }}</h6>
+                <div class="col-md-4">
                 <form action="/searchfija" method="GET">
                 <div class="input-group">
         <input type="searchfija" name="searchfija" class="form-control">
         <span class="input-group-prepend">
-            <button type="submit" class="btn btn-primary">Buscar</button>
+            <button type="submit" class="btn btn-primary">Buscar por documento</button>
             </span>
         </div>
     </form>
@@ -24,34 +24,46 @@
         <th scope="col">Numero de contacto</th>
         <th scope="col">Nombres</th>
         <th scope="col">Documento</th>
+        <th scope="col">Correo</th>
         <th scope="col">Producto</th>
-        <th scope="col">Agente</th>
+
         <th scope="col">Revision</th>
+        <th scope="col">Causales</th>
+        <th scope="col">Agente</th>
+
         <th colspan="3">Acciones</th>
         </tr>
 </thead>
 <tbody>
-@foreach ($fija as $fija)
+@foreach ($fijas as $fija)
      <tr>
         <td>{{$loop->iteration}}</td>
         <td>{{$fija->ncontacto}}</td>
         <td>{{$fija->nombres}}</td>
         <td>{{$fija->documento}}</td>
+        <td>{{$fija->correo}}</td>
         <td>{{$fija->producto}}</td>
+
+        <td>{{$fija->revisados}}</td>
+        <td>{{$fija->estadorevisado}}</td>
         <td>{{$fija->agente}}</td>
-        <td>{{$fija->revisado}}</td>
+
+
         <td>
             <form action="{{url('/fija/'.$fija->id)}}" method="post">
                 @csrf
                 @method('DELETE')
-        <a href="{{url('/fija/'.$fija->id.'/edit')}}" class="btn btn-warning btn-sm" role="button" aria-pressed="true">Editar</a>
-        <button class="btn btn-danger btn-sm" onclick="return confirm('Borrar?');" type="submit"aria-pressed="true">Borrar</button>
+        <a href="{{url('/fija/'.$fija->id.'/edit')}}" class="btn btn-primary btn-sm" role="button" aria-pressed="true">Editar</a>
+        <button class="btn btn-warning btn-sm" onclick="return confirm('Borrar?');" type="submit"aria-pressed="true">Borrar</button>
         </form>
             </td>
             </tr>
             @endforeach
             </tbody>
          </table>
+
+{{ $fijas->links() }}
+
       </div>
         <p>
         clic <a href="{{route('fija.excel')}}">Aqui</a>

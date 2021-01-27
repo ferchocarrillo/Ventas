@@ -7,5 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Porta extends Model
 {
 
-    protected $table='porta';
+    protected $table='portas';
+
+
 }
+

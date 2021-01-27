@@ -7,13 +7,13 @@
 <div class="container">
     <div class="pull-right">
         <div class="col-md-12">
-            <div class="card">
-                <body input type = "time" onload="HoraActual(<?php echo date("H").", ".date("i").", ".date("s"); ?>)">
-                <div id="contenedor_reloj"></div>
-                <link rel="shortcut icon" href="home">
-                <img src="\theme\images\movistar.jpg"  align= "center" height="90" width="150">
+            <div class="card" style="background-image: linear-gradient(#EAF2F8, #AAB7B8);">
             </body>
-            <h1 align= "center" >Editor de Gestion Upgrade</h1>
+            <center style="background-image: linear-gradient(#EAF2F8, #AAB7B8);">
+                <img src="\theme\images\pngegg.png" float="left" height="120" width="300">
+                <h3 aline="center">Editor de Gestion Upgrade</h3>
+            </center>
+
 <form name="f1" action="{{ url('/upgrade/'.$upgrade->id)}}" method="POST" enctype="multipart/form-data" class="form-horizontal">
     @csrf
     @method('PATCH')
@@ -34,6 +34,14 @@
          name="documento"
          value="{{ old('documento', $upgrade->documento)}}">
         </div>
+        <div class="form-group col-md-6">
+            <label for="correo">Correo</label>
+             <input type="text" class="form-control"
+             id="correo"
+             placeholder="Correo Electronico"
+             name="correo"
+             value="{{ old('correo', $upgrade->correo)}}">
+         </div>
          <div class="form-group col-md-6">
             <label for="fventa">Fecha de venta</label>
                <input type="date"
@@ -107,22 +115,22 @@
            </div>
 
 
-    <div class="form-group col-md-12">
-        <label for="revisado">Revision</label>
-        <select name=revisado onchange="cambia_estadorevisado()" class="form-control">
 
-    <option value="0" selected>Seleccione...
-    <option value="1">Ok
-    <option value="2">Recuperar
-    <option value="3">Perdida
-    </select>
+   <div class="form-group col-md-12">
+    <label for="revisados">Revision</label>
+
+     <select name="revisados" id="revisados" class="form-control"  required>
+        <option value="">Revisión</option>
+        @foreach($revisadoses as $revisados)
+            <option value="{{ $revisados->estado}}">{{ $revisados->estado }}</option>
+        @endforeach
+  </select>
     </div>
 
     <div class="form-group col-md-12">
-    <label for="estadorevisado">Estado de la revision</label>
-    <select name=estadorevisado class="form-control">
-    <option value="-">-
-    </select>
+     <label for="estadorevisados">Estado de la revision</label>
+     <select name="estadorevisado" id="estadorevisado" class="form-control" placeholder="Estado de la revisión" required></select>
+ </div>
     <div class="form-group col-md-12">
         <textarea class="form-control"  id ="obs2" name="obs2" rows="3" placeholder="Observaciones BackOficce"></textarea>
         </div>
@@ -134,7 +142,7 @@
 
     <a href="{{route('upgrade.index')}}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">VOLVER</a>
 
-    </div>
+
 
     </form>
     <script>
@@ -207,6 +215,31 @@
       )
       </script>
       @stop
+      <script>
+        $(document).ready(function() {
+             $('#revisados').on('change', function(e) {
+                 var id = $('#revisados').val();
+                 $.ajax({
+
+                     url: "{{ route('Revisado')}}",
+                     data: "id="+id+"&_token={{ csrf_token()}}",
+                     dataType: "json",
+                     method: "POST",
+                     success: function(result)
+                     {
+
+                         $('#estadorevisado').empty();
+                         $('#estadorevisado').append("<option value=''>Escoja una Opcion</option>");
+                         $.each(result, function(index,value){
+
+                             $('#estadorevisado').append("<option value='"+value.estado+"'>"+value.estado+"</option>");
+                         });
+                     }
+                 });
+             });
+         });
+     </script>
+
 
       @endsection
 

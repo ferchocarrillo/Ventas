@@ -33,6 +33,16 @@ class UserController extends Controller
         //return 'Create';
     }
 
+    public function searchusers( Request $request)
+
+    {
+        $users = User::all();
+
+        $searchusers = $request->get('searchusers');
+        $users= User::firstOrNew()->where('cedula', 'like', '%'.$searchusers.'%')->paginate(5);
+        return view('user.index', ['users' => $users]);
+    }
+
     /**
      * Store a newly created resource in storage.
      *

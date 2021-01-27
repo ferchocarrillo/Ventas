@@ -4,7 +4,8 @@
 <div class="container">
     <div class="pull-right">
         <div class="col-md-12">
-            <div class="card">
+            <div class="card" style="background-image: linear-gradient(#EAF2F8, #AAB7B8);">
+                <h6>Cantidad de Registros:  {{ $preposts->total() }}</h6>
                 <br>
                 <div class="col-md-4"   >
                 <form action="/searchprepost" method="GET">
@@ -26,17 +27,17 @@
         <th scope="col">Documento</th>
         <th scope="col">Plan venta</th>
         <th scope="col">Observaciones</th>
-        <th scope="col">Agente</th>
         <th scope="col">Fecha venta</th>
         <th scope="col">Revision</th>
-
+        <th scope="col">Causal</th>
+        <th scope="col">Agente</th>
 
 
         <th colspan="3">Acciones</th>
        </tr>
     </thead>
   <tbody>
-    @foreach ($prepost as $prepost)
+    @foreach ($preposts as $prepost)
 <tr>
         <td>{{$loop->iteration}}</td>
         <td>{{$prepost->numero}}</td>
@@ -44,23 +45,25 @@
         <td>{{$prepost->documento}}</td>
         <td>{{$prepost->planventa}}</td>
         <td>{{$prepost->observaciones}}</td>
-        <td>{{$prepost->agente}}</td>
         <td>{{$prepost->created_at}}</td>
-        <td>{{$prepost->revisado}}</td>
-
+        <td>{{$prepost->revisados}}</td>
+        <td>{{$prepost->estadorevisado}}</td>
+        <td>{{$prepost->agente}}</td>
         <td>
             <form action="{{url('/prepost/'.$prepost->id)}}" method="post">
                 @csrf
                 @method('DELETE')
-                <a href="{{url('/prepost/'.$prepost->id.'/edit')}}" class="btn btn-warning btn-sm" role="button" aria-pressed="true">Editar</a>
+                <a href="{{url('/prepost/'.$prepost->id.'/edit')}}" class="btn btn-primary btn-sm" role="button" aria-pressed="true">Editar</a>
 
-                <button class="btn btn-danger btn-sm" onclick="return confirm('Borrar?');" type="submit"aria-pressed="true">Borrar</button>
+                <button class="btn btn-warning btn-sm" onclick="return confirm('Borrar?');" type="submit"aria-pressed="true">Borrar</button>
               </form>
         </td>
      </tr>
 @endforeach
 </tbody>
 </table>
+
+{{  $preposts->links()  }}
         </div>
     </form>
     <p>

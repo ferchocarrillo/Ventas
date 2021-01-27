@@ -24,6 +24,7 @@ use App\User;
 use stdClass;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\FijaExport;
+use App\Revisados;
 
 
 
@@ -36,8 +37,8 @@ class FijaController extends Controller
      */
     public function index()
     {
-        $fija['fija']=Fija::orderBY('revisado','asc')->with('fija')->get();
-        return view('fija.index',$fija);
+        $fijas = Fija::orderBy('revisados', 'asc')->paginate(10);
+        return view('fija.index',compact('fijas'));
 
 
     }
@@ -57,17 +58,18 @@ class FijaController extends Controller
         $adicionales = Adicionales::all();
         $usuarios = User::all();
         $user_id = Auth::user()->id;
-        return view('fija.create',compact('depto','estrato','velocidad','tecnologia','producto', 'adicionales','usuarios'));
+        $fijas = Fija::all();
+        return view('fija.create',compact('fijas','depto','estrato','velocidad','tecnologia','producto', 'adicionales','usuarios'));
 
     }
 
     public function searchfija( Request $request)
     {
-        $fija = Fija::all();
+        $fijas = Fija::all();
 
         $searchfija = $request->get('searchfija');
-        $fija= Fija::firstOrNew()->where('ncontacto', 'like', '%'.$searchfija.'%')->paginate(5);
-        return view('fija.index', ['fija' => $fija]);
+        $fijas = Fija::firstOrNew()->where('documento', 'like', '%'.$searchfija.'%')->paginate(5);
+        return view('fija.index', ['fijas' => $fijas]);
     }
     /**
      * Store a newly created resource in storage.
@@ -75,39 +77,40 @@ class FijaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, fija $fijas)
     {
         $user_id = Auth::user()->id;
         $user_nombre = Auth::user()->name;
 
-        $fija = new Fija();
-        $fija->nombres         = $request ->nombres;
-        $fija->documento       = $request ->documento;
-        $fija->fexpedicion     = $request ->fexpedicion;
-        $fija->departamento    = $request ->departamento;
-        $fija->ciudad          = $request ->id_ciudad;
-        $fija->direccion       = $request ->direccion;
-        $fija->barrio          = $request ->barrio;
-        $fija->estrato         = $request ->estrato;
-        $fija->ngrabacion      = $request ->ngrabacion;
-        $fija->ncontacto       = $request ->ncontacto;
-        $fija->producto        = $request ->producto;
-        $fija->FOX             = $request ->FOX;
-        $fija->HBO             = $request ->HBO;
-        $fija->cds_movil        = $request ->cds_movil;
-        $fija->cds_fija         = $request ->cds_fija;
-        $fija->Paquete_Adultos = $request ->Paquete_Adultos;
-        $fija->Decodificador   = $request ->Decodificador;
-        $fija->Svas_lineas     = $request ->Svas_lineas;
-        $fija->velocidad       = $request ->velocidad;
-        $fija->tecnologia      = $request ->tecnologia;
-        $fija->observacion     = $request ->observacion;
-        $fija->agente          = $user_id.','.$user_nombre;
-        $fija->revisado        = $request ->revisado;
-        $fija->estadorevisado  = $request ->estadorevisado;
-        $fija->obs2            = $request ->obs2;
-        $fija->backoffice      = $request ->$user_id.','.$user_nombre;
-        $fija->save();
+        $fijas = new Fija();
+        $fijas->nombres         = $request ->nombres;
+        $fijas->documento       = $request ->documento;
+        $fijas->fexpedicion     = $request ->fexpedicion;
+        $fijas->correo          = $request ->correo;
+        $fijas->departamento    = $request ->departamento;
+        $fijas->ciudad          = $request ->id_ciudad;
+        $fijas->direccion       = $request ->direccion;
+        $fijas->barrio          = $request ->barrio;
+        $fijas->estrato         = $request ->estrato;
+        $fijas->ngrabacion      = $request ->ngrabacion;
+        $fijas->ncontacto       = $request ->ncontacto;
+        $fijas->producto        = $request ->producto;
+        $fijas->FOX             = $request ->FOX;
+        $fijas->HBO             = $request ->HBO;
+        $fijas->cds_movil       = $request ->cds_movil;
+        $fijas->cds_fija        = $request ->cds_fija;
+        $fijas->Paquete_Adultos = $request ->Paquete_Adultos;
+        $fijas->Decodificador   = $request ->Decodificador;
+        $fijas->Svas_lineas     = $request ->Svas_lineas;
+        $fijas->velocidad       = $request ->velocidad;
+        $fijas->tecnologia      = $request ->tecnologia;
+        $fijas->observacion     = $request ->observacion;
+        $fijas->agente          = $user_id.','.$user_nombre;
+        $fijas->revisados        = $request ->revisados;
+        $fijas->estadorevisado  = $request ->estadorevisado;
+        $fijas->obs2            = $request ->obs2;
+        $fijas->backoffice      = $user_nombre;
+        $fijas->save();
         return back();
 
 
@@ -118,18 +121,27 @@ class FijaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Fija  $fija
+     * @param  \App\Fija  $fijas
      * @return \Illuminate\Http\Response
      */
-    public function show(Fija $fija)
+    public function show($id)
     {
-        //
+        $fijas = Fija::all();
+        $depto = Departamentos::all();
+        $tipoCliente = TipoCliente::all();
+        $planadquiere = Planadquiere::all();
+        $origen = Origen::all();
+        $revisado = Revisados::all();
+        $usuarios = User::all();
+        $this->authorize('haveaccess','porta.edit');
+        $fijas = Fija::findOrFail($id);
+        return view('porta.edit',compact('fijas','depto','revisado','tipoCliente','origen','planadquiere', 'usuarios'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Fija  $fija
+     * @param  \App\Fija  $fijas
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -137,21 +149,17 @@ class FijaController extends Controller
 
     {
 
-        $fija = Fija::all();
+        $fijas = Fija::all();
         $depto = Departamentos::all();
         $tipoCliente = TipoCliente::all();
         $planadquiere = Planadquiere::all();
         $origen = Origen::all();
-        $revisiones = Revisiones::all();
+        $revisadoses = Revisados::all();
         $usuarios = User::all();
 
-
         $this->authorize('haveaccess','fija.edit');
-
-
-
-       $fija=Fija::findOrFail($id);
-        return view('fija.edit',compact('fija','depto','revisiones','tipoCliente','origen','planadquiere', 'usuarios'));
+        $fijas=Fija::findOrFail($id);
+        return view('fija.edit',compact('fijas','depto','revisadoses','tipoCliente','origen','planadquiere', 'usuarios'));
 
     }
 
@@ -168,11 +176,11 @@ class FijaController extends Controller
         $usuarios = User::all();
         $user_id = Auth::user()->id;
         $user_nombre = Auth::user()->name;
-
+        $revisadoses = Revisados::all();
         $datosFija=request()->except(['_token','_method']);
         Fija::where('id','=',$id)->update($datosFija);
-        $fija=Fija::findOrFail($id);
-        return view('fija.edit',compact('fija', 'usuarios'));
+        $fijas=Fija::findOrFail($id);
+        return view('fija.edit',compact('fijas', 'usuarios','revisadoses'));
     }
     /**
      * Remove the specified resource from storage.

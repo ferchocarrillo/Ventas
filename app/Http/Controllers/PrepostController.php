@@ -11,7 +11,7 @@ use App\JhonatanPermission\Models\Permission;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
 use App\Departamentos;
-use App\Tipocliente;
+use App\TipoCliente;
 use App\Origen;
 use App\Revisados;
 use App\Velocidad;
@@ -37,10 +37,21 @@ class PrepostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $prepost['prepost']=Prepost::paginate(10);
-        $prepost['prepost']=Prepost::OrderBy('revisado','asc')->get();
-        return view('prepost.index',$prepost);
+{
+        $corte = Corte::all();
+        $estrato = Estrato::all();
+        $velocidad = Velocidad::all();
+        $tecnologia = Tecnologia::all();
+        $producto = Producto::all();
+        $adicionales = Adicionales::all();
+        $activacion = Activacion::all();
+        $tipoCliente = Tipocliente::all();
+        $plan = Planes_prepost::all();
+        $usuarios = User::all();
+        $user_id = Auth::user()->id;
+
+        $preposts = Prepost::orderBy('revisados', 'asc')->paginate(10);
+        return view('prepost.index',compact('preposts','corte','estrato','tipoCliente','velocidad','producto','adicionales', 'activacion','plan', 'usuarios'));
     }
 
     /**
@@ -68,11 +79,11 @@ class PrepostController extends Controller
 
     public function searchprepost( Request $request)
     {
-        $prepost = Prepost::all();
+        $preposts = Prepost::all();
 
         $searchprepost = $request->get('searchprepost');
-        $prepost= Prepost::firstOrNew()->where('numero', 'like', '%'.$searchprepost.'%')->paginate(5);
-        return view('prepost.index', ['prepost' => $prepost]);
+        $preposts= Prepost::firstOrNew()->where('numero', 'like', '%'.$searchprepost.'%')->paginate(5);
+        return view('prepost.index', ['preposts' => $preposts]);
     }
 
     /**
@@ -101,11 +112,11 @@ class PrepostController extends Controller
         $prepost->activacion           = $request ->activacion;
         $prepost->token                = $request ->token;
         $prepost->observaciones        = $request ->observaciones;
-        $prepost->agente               = $request ->$user_id.','.$user_nombre;
-        $prepost->revisado             = $request ->revisado;
+        $prepost->agente               = $user_id.','.$user_nombre;
+        $prepost->revisados            = $request ->revisados;
         $prepost->estadorevisado       = $request ->estadorevisado;
         $prepost->obs2                 = $request ->obs2;
-        $prepost->backoffice           = $request ->$user_id.','.$user_nombre;
+        $prepost->backoffice           = $user_id.','.$user_nombre;
 
         $prepost->save();
         return back() ;
@@ -119,9 +130,18 @@ class PrepostController extends Controller
      * @param  \App\Prepost  $prepost
      * @return \Illuminate\Http\Response
      */
-    public function show(Prepost $prepost)
+    public function show($id)
     {
-        //
+        $prepost = Prepost::all();
+        $depto = Departamentos::all();
+        $tipoCliente = TipoCliente::all();
+        $planadquiere = Planadquiere::all();
+        $origen = Origen::all();
+        $revisadoses = Revisados::all();
+        $usuarios = User::all();
+        $this->authorize('haveaccess','porta.edit');
+        $prepost = Prepost::findOrFail($id);
+        return view('porta.edit',compact('prepost','depto','revisado','tipoCliente','origen','planadquiere', 'usuarios'));
     }
 
     /**
@@ -140,7 +160,7 @@ class PrepostController extends Controller
         $tipoCliente = TipoCliente::all();
         $planadquiere = Planadquiere::all();
         $origen = Origen::all();
-        $revisiones = Revisiones::all();
+        $revisadoses = Revisados::all();
         $usuarios = User::all();
 
 
@@ -149,7 +169,7 @@ class PrepostController extends Controller
 
 
        $prepost=Prepost::findOrFail($id);
-        return view('prepost.edit',compact('prepost','depto','revisiones','tipoCliente','origen','planadquiere', 'usuarios'));
+        return view('prepost.edit',compact('prepost','depto','revisadoses','tipoCliente','origen','planadquiere', 'usuarios'));
 
     }
     /**
@@ -165,11 +185,11 @@ class PrepostController extends Controller
         $usuarios = User::all();
         $user_id = Auth::user()->id;
         $user_nombre = Auth::user()->name;
-
+        $revisadoses = Revisados::all();
         $datosPrepost=request()->except(['_token','_method']);
         Prepost::where('id','=',$id)->update($datosPrepost);
         $prepost=Prepost::findOrFail($id);
-        return view('prepost.edit',compact('prepost', 'usuarios'));
+        return view('prepost.edit',compact('prepost', 'usuarios','revisadoses'));
     }
 
     /**

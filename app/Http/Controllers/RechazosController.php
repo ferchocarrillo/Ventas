@@ -56,7 +56,7 @@ class RechazosController extends Controller
         $user_nombre = Auth::user()->name;
         $rechazos = new Rechazos();
         $rechazos->numero_de_celular             = $request ->numero_de_celular;
-        $rechazos->nombres           = $request ->nombres;
+        $rechazos->nombres                       = $request ->nombres;
         $rechazos->documento                     = $request ->documento;
         $rechazos->causal                        = $request ->causal;
         $rechazos->linea                         = $request ->linea;

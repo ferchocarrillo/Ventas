@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Planadquiere extends Model
 {
     //
-    protected $table='planadquiere';
+    protected $table='planadquieres';
 
 }
