@@ -294,6 +294,24 @@ return [
             'icon_color' => 'green'
 ],
 
+['text'    => 'Upgrade Digital',
+'url'     => 'upgradedigital\create',
+'icon'    => 'fas fa-sort-amount-up',
+'icon_color' => 'orange'
+],
+
+['text'    => 'Prepost Digital',
+'url'     => 'prepostdigital\create',
+'icon'    => 'fas fa-tachometer-alt',
+'icon_color' => 'fuchsia'
+],
+
+['text'    => 'Fija Digital',
+'url'     => 'fijadigital\create',
+'icon'    => 'fab fa-accusoft',
+'icon_color' => 'lime'
+],
+
 ],
 ],
 [
@@ -327,6 +345,23 @@ return [
     'icon'    => 'fas fa-calculator',
     'icon_color' => 'green'
 ],
+['text'    => 'Upgrade Digital',
+'url'     => 'upgradedigital',
+'icon'    => 'fas fa-sort-amount-up',
+'icon_color' => 'orange'
+],
+['text'    => 'Prepost Digital',
+'url'     => 'prepostdigital',
+'icon'    => 'fas fa-tachometer-alt',
+'icon_color' => 'fuchsia'
+],
+['text'    => 'Fija Digital',
+'url'     => 'fijadigital',
+'icon'    => 'fab fa-accusoft',
+'icon_color' => 'lime'
+],
+
+
 ],
 ],
 [   'text' => 'Planes',
