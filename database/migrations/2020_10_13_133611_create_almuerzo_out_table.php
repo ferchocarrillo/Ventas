@@ -15,6 +15,8 @@ class CreatealmuerzoOutTable extends Migration
      */
     public function up()
     {
+
+        Schema::dropIfExists('almuerzo_outs');
         Schema::create('almuerzo_outs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->date('fecha');

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePortaTable extends Migration
+class CreatePhoenixesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreatePortaTable extends Migration
      */
     public function up()
     {
-        Schema::create('portas', function (Blueprint $table) {
+        Schema::create('phoenixes', function (Blueprint $table) {
             $table->increments('id');
             $table->biginteger ('numero');
             $table->biginteger('documento');
@@ -29,17 +29,18 @@ class CreatePortaTable extends Migration
             $table->string('planadquiere');
             $table->biginteger('ncontacto');
             $table->biginteger('imei');
+            $table->string('modelo');
             $table->date('fvc');
             $table->date('fentrega');
             $table->date('fexpedicion');
             $table->date('fnacimiento');
             $table->string('origen');
             $table->biginteger('ngrabacion');
-            $table->string('observaciones');
+            $table->longText('observaciones');
             $table->string('agente');
-            $table->string('revisados');
-            $table->string('estadorevisados');
-            $table->string('obs2');
+            $table->string('revisados')->nullable();
+            $table->string('estadorevisado')->nullable();
+            $table->longText('obs2')->nullable();
             $table->string('backoffice');
             $table->timestamps();
         });
@@ -52,6 +53,6 @@ class CreatePortaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('portas');
+        Schema::dropIfExists('phoenixes');
     }
 }

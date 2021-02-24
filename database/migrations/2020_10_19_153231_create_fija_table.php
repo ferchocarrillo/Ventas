@@ -37,7 +37,7 @@ class CreatefijaTable extends Migration
             $table->string('tecnologia');
             $table->string('observaciones');
             $table->string('agente');
-            $table->string('revisado');
+            $table->string('revisados');
             $table->string('estadorevisados');
             $table->string('obs2');
             $table->string('backoffice');

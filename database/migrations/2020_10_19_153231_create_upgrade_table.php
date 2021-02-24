@@ -26,7 +26,7 @@ class CreateUpgradeTable extends Migration
             $table->biginteger ('numero de grabacion');
             $table->string('observacion');
             $table->string('agente');
-            $table->string('revisado');
+            $table->string('revisados');
             $table->string('estadorevisados');
             $table->string('obs2');
             $table->string('backoffice');

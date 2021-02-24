@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class PortaPlanesNuevosSeeder extends Seeder
+class PhoenixSeeder extends Seeder
 {
     /**
      * Run the database seeds.

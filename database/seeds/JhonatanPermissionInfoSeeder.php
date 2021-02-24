@@ -173,7 +173,7 @@ class JhonatanPermissionInfoSeeder extends Seeder
         ]);
 
         //porta porta
-        $porta = Porta::create([
+        $porta = Permission::create([
             'name' => 'Index porta',
             'slug' => 'porta.index',
             'description' => 'Un usuario puede listar un Porta',
@@ -181,7 +181,7 @@ class JhonatanPermissionInfoSeeder extends Seeder
 
         $porta_all[] = $porta->id;
 
-        $porta = Porta::create([
+        $porta = Permission::create([
             'name' => 'Show porta',
             'slug' => 'porta.show',
             'description' => 'Un usuario puede Ver un Porta',
@@ -189,7 +189,7 @@ class JhonatanPermissionInfoSeeder extends Seeder
 
         $porta_all[] = $porta->id;
 
-        $porta = Porta::create([
+        $porta = Permission::create([
             'name' => 'Create porta',
             'slug' => 'porta.create',
             'description' => 'Un usuario puede Crear un Porta',
@@ -197,7 +197,7 @@ class JhonatanPermissionInfoSeeder extends Seeder
 
         $porta_all[] = $porta->id;
 
-        $porta = Porta::create([
+        $porta = Permission::create([
             'name' => 'Edit porta',
             'slug' => 'porta.edit',
             'description' => 'Un usuario puede Editar un Porta',
@@ -205,7 +205,7 @@ class JhonatanPermissionInfoSeeder extends Seeder
 
         $porta_all[] = $porta->id;
 
-        $porta = Porta::create([
+        $porta = Permission::create([
             'name' => 'Destroy porta',
             'slug' => 'porta.destroy',
             'description' => 'Un usuario puede Destruir un Porta',
@@ -214,7 +214,7 @@ class JhonatanPermissionInfoSeeder extends Seeder
         $porta_all[] = $porta->id;
 
         //fija fija
-        $fija = Fija::create([
+        $fija = Permission::create([
             'name' => 'Index fija',
             'slug' => 'fija.index',
             'description' => 'Un usuario puede listar un Fija',
@@ -222,7 +222,7 @@ class JhonatanPermissionInfoSeeder extends Seeder
 
         $fija_all[] = $fija->id;
 
-        $fija = Fija::create([
+        $fija = Permission::create([
             'name' => 'Show fija',
             'slug' => 'fija.show',
             'description' => 'Un usuario puede Ver un Fija',
@@ -230,7 +230,7 @@ class JhonatanPermissionInfoSeeder extends Seeder
 
         $fija_all[] = $fija->id;
 
-        $fija = Fija::create([
+        $fija = Permission::create([
             'name' => 'Create fija',
             'slug' => 'fija.create',
             'description' => 'Un usuario puede Crear un Fija',
@@ -238,7 +238,7 @@ class JhonatanPermissionInfoSeeder extends Seeder
 
         $fija_all[] = $fija->id;
 
-        $fija = Fija::create([
+        $fija = Permission::create([
             'name' => 'Edit fija',
             'slug' => 'fija.edit',
             'description' => 'Un usuario puede Editar un Fija',
@@ -246,7 +246,7 @@ class JhonatanPermissionInfoSeeder extends Seeder
 
         $fija_all[] = $fija->id;
 
-        $fija = Fija::create([
+        $fija = Permission::create([
             'name' => 'Destroy fija',
             'slug' => 'fija.destroy',
             'description' => 'Un usuario puede Destruir un Fija',
@@ -256,7 +256,7 @@ class JhonatanPermissionInfoSeeder extends Seeder
 
 
         //upgrade upgrade
-        $upgrade = Upgrade::create([
+        $upgrade = Permission::create([
             'name' => 'Index upgrade',
             'slug' => 'upgrade.index',
             'description' => 'Un usuario puede listar un Upgrade',
@@ -264,7 +264,7 @@ class JhonatanPermissionInfoSeeder extends Seeder
 
         $upgrade_all[] = $upgrade->id;
 
-        $upgrade = Upgrade::create([
+        $upgrade = Permission::create([
             'name' => 'Show upgrade',
             'slug' => 'upgrade.show',
             'description' => 'Un usuario puede Ver un Upgrade',
@@ -272,7 +272,7 @@ class JhonatanPermissionInfoSeeder extends Seeder
 
         $upgrade_all[] = $upgrade->id;
 
-        $upgrade = Upgrade::create([
+        $upgrade = Permission::create([
             'name' => 'Create upgrade',
             'slug' => 'upgrade.create',
             'description' => 'Un usuario puede Crear un Upgrade',
@@ -280,7 +280,7 @@ class JhonatanPermissionInfoSeeder extends Seeder
 
         $upgrade_all[] = $upgrade->id;
 
-        $upgrade = Upgrade::create([
+        $upgrade = Permission::create([
             'name' => 'Edit upgrade',
             'slug' => 'upgrade.edit',
             'description' => 'Un usuario puede Editar un Upgrade',
@@ -288,7 +288,7 @@ class JhonatanPermissionInfoSeeder extends Seeder
 
         $upgrade_all[] = $upgrade->id;
 
-        $upgrade = Upgrade::create([
+        $upgrade = Permission::create([
             'name' => 'Destroy upgrade',
             'slug' => 'upgrade.destroy',
             'description' => 'Un usuario puede Destruir un Upgrade',
@@ -297,7 +297,7 @@ class JhonatanPermissionInfoSeeder extends Seeder
         $upgrade_all[] = $upgrade->id;
 
         //prepost prepost
-        $prepost = Prepost::create([
+        $prepost = Permission::create([
             'name' => 'Index prepost',
             'slug' => 'prepost.index',
             'description' => 'Un usuario puede listar un Prepost',
@@ -305,7 +305,7 @@ class JhonatanPermissionInfoSeeder extends Seeder
 
         $prepost_all[] = $prepost->id;
 
-        $prepost = Prepost::create([
+        $prepost = Permission::create([
             'name' => 'Show prepost',
             'slug' => 'prepost.show',
             'description' => 'Un usuario puede Ver un Prepost',
@@ -313,7 +313,7 @@ class JhonatanPermissionInfoSeeder extends Seeder
 
         $prepost_all[] = $prepost->id;
 
-        $prepost = Prepost::create([
+        $prepost = Permission::create([
             'name' => 'Create prepost',
             'slug' => 'prepost.create',
             'description' => 'Un usuario puede Crear un Prepost',
@@ -321,7 +321,7 @@ class JhonatanPermissionInfoSeeder extends Seeder
 
         $prepost_all[] = $prepost->id;
 
-        $prepost = Prepost::create([
+        $prepost = Permission::create([
             'name' => 'Edit prepost',
             'slug' => 'prepost.edit',
             'description' => 'Un usuario puede Editar un Prepost',
@@ -329,7 +329,7 @@ class JhonatanPermissionInfoSeeder extends Seeder
 
         $prepost_all[] = $prepost->id;
 
-        $prepost = Prepost::create([
+        $prepost = Permission::create([
             'name' => 'Destroy prepost',
             'slug' => 'prepost.destroy',
             'description' => 'Un usuario puede Destruir un Prepost',
@@ -337,7 +337,7 @@ class JhonatanPermissionInfoSeeder extends Seeder
 
         $prepost_all[] = $prepost->id;
         //rechazos rechazos
-        $rechazos = Rechazos::create([
+        $rechazos = Permission::create([
             'name' => 'Index rechazos',
             'slug' => 'rechazos.index',
             'description' => 'Un usuario puede listar un Rechazos',
@@ -345,7 +345,7 @@ class JhonatanPermissionInfoSeeder extends Seeder
 
         $rechazos_all[] = $rechazos->id;
 
-        $rechazos = Rechazos::create([
+        $rechazos = Permission::create([
             'name' => 'Show rechazos',
             'slug' => 'rechazos.show',
             'description' => 'Un usuario puede Ver un Rechazos',
@@ -353,7 +353,7 @@ class JhonatanPermissionInfoSeeder extends Seeder
 
         $rechazos_all[] = $rechazos->id;
 
-        $rechazos = Rechazos::create([
+        $rechazos = Permission::create([
             'name' => 'Create rechazos',
             'slug' => 'rechazos.create',
             'description' => 'Un usuario puede Crear un Rechazos',
@@ -361,7 +361,7 @@ class JhonatanPermissionInfoSeeder extends Seeder
 
         $rechazos_all[] = $rechazos->id;
 
-        $rechazos = Rechazos::create([
+        $rechazos = Permission::create([
             'name' => 'Edit rechazos',
             'slug' => 'rechazos.edit',
             'description' => 'Un usuario puede Editar un Rechazos',
@@ -369,7 +369,7 @@ class JhonatanPermissionInfoSeeder extends Seeder
 
         $rechazos_all[] = $rechazos->id;
 
-        $rechazos = Rechazos::create([
+        $rechazos = Permission::create([
             'name' => 'Destroy rechazos',
             'slug' => 'rechazos.destroy',
             'description' => 'Un usuario puede Destruir un Rechazos',
