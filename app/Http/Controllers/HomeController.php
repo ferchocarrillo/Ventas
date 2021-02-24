@@ -14,6 +14,8 @@ use App\PortaDigital;
 use App\Prepost;
 use App\prepostDigital;
 use App\upgradeDigital;
+use App\lineaNueva;
+use App\phoenix;
 use Carbon\Carbon;
 use Carbon\Traits\IntervalStep;
 
@@ -46,7 +48,7 @@ class HomeController extends Controller
      $preposts= Prepost::all();
      $portadigitals= PortaDigital::all();
      $upgrades= Upgrade::all();
-     $prepostDigitals = prepostDigital::all(); 
+     $prepostDigitals = prepostDigital::all();
 
      $countPortases       ['portas']    = Porta::where    ('revisados', 'ok')->count();
      $okPortases          ['portas']    = Porta::where    ('revisados', 'ok')->count();
@@ -68,7 +70,7 @@ class HomeController extends Controller
      $recuperadaUpgrades  ['upgrade']   =Upgrade::where   ('revisados', 'Recuperar')->count();
      $revisadoUpgrades    ['upgrade']   =Upgrade::where   ('revisados','<>', null)->count();
      $sinrevisarUpgrades  ['upgrade']   =Upgrade::where   ('revisados', null)->count();
-     
+
      $dgcountupgrades      ['upgrade_digitals']=upgradeDigital::where('revisados' , 'ok')->count();
      $dgokUpgrades         ['upgrade_digitals']=upgradeDigital::where('revisados', 'ok')->count();
      $dgperdidaUpgrades    ['upgrade_digitals']=upgradeDigital::where('revisados', 'Perdida')->count();
@@ -107,14 +109,31 @@ class HomeController extends Controller
      $dgrevisadoFijas       ['fija_digitals']     = fijaDigital::where     ('revisados','<>', null)->count();
      $dgsinrevisarFijas     ['fija_digitals']     = fijaDigital::where     ('revisados', null)->count();
 
+
+
+     $lineanuevacountes     ['linea_nuevas']     = lineaNueva::where     ('revisados','ok')->count();
+     $lineanuevaoks         ['linea_nuevas']     = lineaNueva::where     ('revisados','ok')->count();
+     $lineanuevaperdidas    ['linea_nuevas']     = lineaNueva::where     ('revisados','Perdida')->count();
+     $lineanuevarecuperadas ['linea_nuevas']     = lineaNueva::where     ('revisados','Recuperar')->count();
+     $lineanuevarevisadas   ['linea_nuevas']     = lineaNueva::where     ('revisados','<>', null)->count();
+     $lineanuevanorevisadas ['linea_nuevas']     = lineaNueva::where     ('revisados', null)->count();
+
+
+     $phoenixcountes     ['phoenixes']     = phoenix::where     ('revisados','ok')->count();
+     $phoenixoks         ['phoenixes']     = phoenix::where     ('revisados','ok')->count();
+     $phoenixperdidas    ['phoenixes']     = phoenix::where     ('revisados','Perdida')->count();
+     $phoenixrecuperadas ['phoenixes']     = phoenix::where     ('revisados','Recuperar')->count();
+     $phoenixrevisadas   ['phoenixes']     = phoenix::where     ('revisados','<>', null)->count();
+     $phoenixnorevisadas ['phoenixes']     = phoenix::where     ('revisados', null)->count();
+
      $fechaportases         ['portas']   = Porta::where ('created_at', 'exchange')->orderBy('created_at', 'asc')->count();
-     
+
      return view('home',compact(
      'dgcountupgrades',
      'dgokUpgrades',
      'dgperdidaUpgrades',
      'portas',
-     'countPortases', 
+     'countPortases',
      'okPortases',
      'perdidaPortases',
      'recuperadaPortases',
@@ -122,7 +141,7 @@ class HomeController extends Controller
      'sinrevisarPortases',
      'fechaportases',
      'upgrades',
-     'countupgrades', 
+     'countupgrades',
      'okUpgrades',
      'perdidaUpgrades',
      'recuperadaUpgrades',
@@ -133,10 +152,10 @@ class HomeController extends Controller
      'okFijas',
      'perdidaFijas',
      'recuperadaFijas',
-     'revisadoFijas', 
+     'revisadoFijas',
      'sinrevisarFijas',
      'preposts',
-     'countpreposts', 
+     'countpreposts',
      'okPreposts',
      'perdidaPreposts',
      'recuperadaPreposts',
@@ -152,17 +171,29 @@ class HomeController extends Controller
      'dgrevisadoUpgrades',
      'dgsinrevisarUpgrades',
      'dgcountpreposts',
-     'dgokPreposts', 
-     'dgperdidaPreposts', 
+     'dgokPreposts',
+     'dgperdidaPreposts',
      'dgrecuperadaPreposts',
      'dgrevisadoPreposts',
-     'dgsinrevisarPreposts', 
+     'dgsinrevisarPreposts',
      'dgcountfijas',
-     'dgokFijas', 
+     'dgokFijas',
      'dgperdidaFijas',
-     'dgrecuperadaFijas', 
+     'dgrecuperadaFijas',
      'dgrevisadoFijas',
-     'dgsinrevisarFijas' 
+     'dgsinrevisarFijas',
+     'lineanuevacountes',
+     'lineanuevaoks',
+     'lineanuevaperdidas',
+     'lineanuevarecuperadas',
+     'lineanuevarevisadas',
+     'lineanuevanorevisadas',
+     'phoenixcountes',
+     'phoenixoks',
+     'phoenixperdidas',
+     'phoenixrecuperadas',
+     'phoenixrevisadas',
+     'phoenixnorevisadas'
 
 
 ));

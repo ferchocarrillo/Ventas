@@ -16,7 +16,7 @@
 </center>
 </div>
 </body>
-
+{{--  inicio tabla principal  --}}
 <div class="row">
         <div class="col-sm-12">
           <div class="card">
@@ -34,6 +34,8 @@
                     <th scope="col">Upgrade Digital</th>
                     <th scope="col">Prepost Digital</th>
                     <th scope="col">Fija Digital</th>
+                    <th scope="col">Linea Nueva</th>
+                    <th scope="col">Phoenix</th>
 
                   </tr>
                 </thead>
@@ -46,6 +48,9 @@
 @foreach ($dgcountupgrades      as $dgcountupgrade)     <td> {{  $dgcountupgrade }}     </td>@endforeach
 @foreach ($dgcountpreposts      as $dgcountprepost)     <td> {{  $dgcountprepost }}     </td>@endforeach
 @foreach ($dgcountfijas         as $dgcountfija)        <td> {{  $dgcountfija }}        </td>@endforeach
+@foreach ($lineanuevacountes    as $lineanuevacount)    <td> {{  $lineanuevacount }}    </td>@endforeach
+@foreach ($phoenixcountes       as $phoenixcount)       <td> {{  $phoenixcount }}    </td>@endforeach
+
 </tbody>
               </table>
             </div>
@@ -78,6 +83,58 @@
           </div>
         </div>
 --}}
+
+<script>
+    var ctx = document.getElementById('myChart1').getContext('2d');
+    var myLineChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+    labels: ['Portabilidad', 'Upgrade', 'Fija', 'Prepost','Porta Digital','Upgrade Digital', 'Prepost Digital','Fija Digital', 'Linea Nueva' ,'Phoenix'],
+    datasets: [{
+    label: 'Cantidad de ventas',
+    data: [{{  $countPortas }},{{  $countupgrade }},{{  $countfija }},{{  $countprepost }},{{  $countPortadigital }} ,{{  $dgcountupgrade }} ,{{  $dgcountprepost }},{{  $dgcountfija }} , {{ $lineanuevacount }} ,{{ $phoenixcount}} ],
+    backgroundColor:
+    ['rgba(255, 99, 132, 0.2)',
+    'rgba(54, 162, 235, 0.2)',
+    'rgba(255, 206, 86, 0.2)',
+    'rgba(255, 159, 64, 0.2)',
+    'rgba(255, 149, 79, 0.2)',
+    'rgba(255, 149, 56, 0.2)',
+    'rgba(255, 129, 30, 0.2)',
+    'rgba(230, 101, 64, 0.2)',
+    'rgba(255, 160, 22, 0.2)',
+    'rgba(255, 149, 79, 0.2)'
+
+    ],
+    borderColor:
+    ['rgba(255, 99, 132, 1)',
+     'rgba(54, 162, 235, 1)',
+     'rgba(255, 206, 86, 1)',
+     'rgba(255, 159, 64, 1)',
+     'rgba(255, 149, 79, 1)',
+     'rgba(255, 149, 56, 1)',
+     'rgba(255, 129, 30, 1)',
+     'rgba(230, 101, 64, 1)',
+     'rgba(255, 160, 22, 1)',
+     'rgba(255, 149, 79, 1)'
+     ],
+    borderWidth: 5
+    }]
+    },
+    options: {
+    scales: {
+    yAxes: [{
+    ticks: {
+    beginAtZero: true
+    }
+    }]
+    }
+    }
+    });
+    </script>
+
+{{--  fin cuadro principal  --}}
+
         <div class="col-sm-6">
             <div class="card">
               <div class="card-body">
@@ -195,7 +252,7 @@
                     </div>
                   </div>
 
-                  
+
         <div class="col-sm-6">
                   <div class="card">
                     <div class="card-body">
@@ -334,7 +391,7 @@
             <tr>
 @foreach ($dgokPreposts as $dgokPrepost)                <td> {{  $dgokPrepost  }}         </td>@endforeach
 @foreach ($dgperdidaPreposts as $dgperdidaPrepost)      <td> {{  $dgperdidaPrepost  }}    </td>@endforeach
-@foreach ($dgrecuperadaPreposts as $dgrecuperadaPrepost )<td> {{  $dgrecuperadaPrepost   }} </td>@endforeach
+@foreach ($dgrecuperadaPreposts as $dgrecuperadaPrepost )<td> {{ $dgrecuperadaPrepost   }} </td>@endforeach
             </tr>
           </tbody>
         </table>
@@ -577,7 +634,7 @@
   data: {
   labels: ['ok', 'Perdida', 'Recuperdada'],
   datasets: [{
-  data: [ {{  $okPortadigital  }} , {{  $perdidaPortadigital  }} , {{  $recuperadaPortadigital  }}],
+  data: [ {{  $dgokUpgrade  }} , {{  $dgperdidaUpgrade  }} , {{  $dgrecuperadaUpgrade  }}],
   backgroundColor:
   ['rgba(255, 99, 132, 0.2)',
    'rgba(54, 162, 235, 0.2)',
@@ -610,7 +667,7 @@
     data: {
     labels: ['ok', 'Perdida', 'Recuperdada'],
     datasets: [{
-    data: [ {{  $okPortadigital  }} , {{  $perdidaPortadigital  }} , {{  $recuperadaPortadigital  }}],
+    data: [ {{  $dgokUpgrade  }} , {{  $dgperdidaUpgrade  }} , {{  $dgrecuperadaUpgrade  }}],
     backgroundColor:
     ['rgba(255, 99, 132, 0.2)',
      'rgba(54, 162, 235, 0.2)',
@@ -633,7 +690,7 @@
     }
     });
     </script>
-    
+
 
 
     <div class="col-sm-6">
@@ -688,7 +745,7 @@
         }
         });
         </script>
-      
+
     <script>
     var ctx = document.getElementById('myChartpdigital2').getContext('2d');
     var myPieChart = new Chart(ctx, {
@@ -721,50 +778,7 @@
 
 
 
-<script>
-var ctx = document.getElementById('myChart1').getContext('2d');
-var myLineChart = new Chart(ctx, {
-type: 'bar',
-data: {
-labels: ['Portabilidad', 'Upgrade', 'Fija', 'Prepost','Porta Digital','Upgrade Digital', 'Prepost Digital','Fija Digital'],
-datasets: [{
-label: 'Cantidad de ventas',
-data: [{{  $countPortas }},{{  $countupgrade }},{{  $countfija }},{{  $countprepost }},{{  $countPortadigital }} ,{{  $dgcountupgrade }} ,{{  $dgcountprepost }},{{  $dgcountfija }} ],
-backgroundColor:
-['rgba(255, 99, 132, 0.2)',
-'rgba(54, 162, 235, 0.2)',
-'rgba(255, 206, 86, 0.2)',
-'rgba(255, 159, 64, 0.2)',
-'rgba(255, 149, 79, 0.2)',
-'rgba(255, 149, 56, 0.2)',
-'rgba(255, 129, 30, 0.2)',
-'rgba(255, 160, 22, 0.2)'
 
-],
-borderColor:
-['rgba(255, 99, 132, 1)',
- 'rgba(54, 162, 235, 1)',
- 'rgba(255, 206, 86, 1)',
- 'rgba(255, 159, 64, 1)',
- 'rgba(255, 149, 79, 1)',
- 'rgba(255, 149, 56, 1)',
- 'rgba(255, 129, 30, 1)',
- 'rgba(255, 160, 22, 1)'
- ],
-borderWidth: 5
-}]
-},
-options: {
-scales: {
-yAxes: [{
-ticks: {
-beginAtZero: true
-}
-}]
-}
-}
-});
-</script>
 
 <script>
 var ctx = document.getElementById('myChart2').getContext('2d');
@@ -1038,6 +1052,238 @@ beginAtZero: true
     }
     });
     </script>
+
+
+
+
+{{--incio grafico linea nueva--}}
+
+
+<div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Resultado de la revision Linea Nueva </h5>
+         <canvas id="lineanueva1" width="40" height="20" style="background-image: linear-gradient(#EAF2F8, #AAB7B8);"></canvas>
+         <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">OK</th>
+                <th scope="col">Perdida</th>
+                <th scope="col">Recuperda</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+  @foreach ($lineanuevaoks  as $lineanuevaok )                <td> {{  $lineanuevaok   }}         </td>@endforeach
+  @foreach ($lineanuevaperdidas as $lineanuevaperdida)        <td> {{  $lineanuevaperdida  }}    </td>@endforeach
+  @foreach ($lineanuevarecuperadas as $lineanuevarecuperada)  <td> {{  $lineanuevarecuperada  }} </td>@endforeach
+              </tr>
+            </tbody>
+          </table>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var ctx = document.getElementById('lineanueva1').getContext('2d');
+    var myLineChart = new Chart(ctx, {
+    type: 'polarArea',
+    data: {
+    labels: ['ok', 'Perdida', 'Recuperdada'],
+    datasets: [{
+    data: [ {{  $lineanuevaok  }} , {{  $lineanuevaperdida  }} , {{  $lineanuevarecuperada  }}],
+    backgroundColor:
+    ['rgba(54, 88, 100, 0.2)',
+     'rgba(255, 99, 32, 0.2)',
+     'rgba(255, 159, 64, 0.2)'],
+    borderColor:
+    ['rgba(54, 88, 100, 1)',
+     'rgba(255, 99, 32, 1)',
+     'rgba(255, 159, 64, 1)'],
+    borderWidth: 5
+    }]
+    },
+    options: {
+    scales: {
+    yAxes: [{
+    ticks: {
+    beginAtZero: true
+    }
+    }]
+    }
+    }
+    });
+    </script>
+  <div class="col-sm-6">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Estado de revision Linea Nueva </h5>
+       <canvas id="lineanueva2" width="40" height="20" style="background-image: linear-gradient(#EAF2F8, #AAB7B8);"></canvas>
+       <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Revisada</th>
+            <th scope="col">No revisado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+  @foreach ($lineanuevarevisadas as $lineanuevarevisada)    <td> {{  $lineanuevarevisada    }} </td>@endforeach
+  @foreach ($lineanuevanorevisadas as $lineanuevanorevisada)<td> {{  $lineanuevanorevisada  }} </td>@endforeach
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  </div>
+  <script>
+    var ctx = document.getElementById('lineanueva2').getContext('2d');
+    var myPieChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+    labels: ['no revisada', 'revisada'],
+    datasets: [{
+    label: 'Estado de revision',
+    data: [ {{$lineanuevarevisada}},{{$lineanuevanorevisada}}],
+    backgroundColor:
+    ['rgba(255, 206, 99, 0.2)',
+     'rgba(54, 88, 100, 0.2)'],
+    borderColor:
+    ['rgba(255, 206, 50, 1)',
+     'rgba(54, 88, 100, 1)'],
+    borderWidth: 5
+    }]
+    },
+    options: {
+    scales: {
+    yAxes: [{
+    ticks: {
+    beginAtZero: true
+    }
+    }]
+    }
+    }
+    });
+    </script>
+
+
+  {{--final grafico linea nueva--}}
+
+
+{{--incio grafico phoenix--}}
+
+
+<div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Resultado de la revision Phoenix </h5>
+         <canvas id="phoenix1" width="40" height="20" style="background-image: linear-gradient(#EAF2F8, #AAB7B8);"></canvas>
+         <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">OK</th>
+                <th scope="col">Perdida</th>
+                <th scope="col">Recuperda</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+  @foreach ($phoenixoks  as $phoenixok )                <td> {{  $phoenixok   }}         </td>@endforeach
+  @foreach ($phoenixperdidas as $phoenixperdida)        <td> {{  $phoenixperdida  }}    </td>@endforeach
+  @foreach ($phoenixrecuperadas as $phoenixrecuperada)  <td> {{  $phoenixrecuperada  }} </td>@endforeach
+              </tr>
+            </tbody>
+          </table>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var ctx = document.getElementById('phoenix1').getContext('2d');
+    var myLineChart = new Chart(ctx, {
+    type: 'polarArea',
+    data: {
+    labels: ['ok', 'Perdida', 'Recuperdada'],
+    datasets: [{
+    data: [ {{  $phoenixok  }} , {{  $phoenixperdida  }} , {{  $phoenixrecuperada  }}],
+    backgroundColor:
+    ['rgba(54, 88, 100, 0.2)',
+     'rgba(255, 99, 32, 0.2)',
+     'rgba(255, 159, 64, 0.2)'],
+    borderColor:
+    ['rgba(54, 88, 100, 1)',
+     'rgba(255, 99, 32, 1)',
+     'rgba(255, 159, 64, 1)'],
+    borderWidth: 5
+    }]
+    },
+    options: {
+    scales: {
+    yAxes: [{
+    ticks: {
+    beginAtZero: true
+    }
+    }]
+    }
+    }
+    });
+    </script>
+  <div class="col-sm-6">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Estado de revision Phoenix </h5>
+       <canvas id="phoenix2" width="40" height="20" style="background-image: linear-gradient(#EAF2F8, #AAB7B8);"></canvas>
+       <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Revisada</th>
+            <th scope="col">No revisado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+  @foreach ($phoenixrevisadas as $phoenixrevisada)    <td> {{  $phoenixrevisada    }} </td>@endforeach
+  @foreach ($phoenixnorevisadas as $phoenixnorevisada)<td> {{  $phoenixnorevisada  }} </td>@endforeach
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  </div>
+  <script>
+    var ctx = document.getElementById('phoenix2').getContext('2d');
+    var myPieChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+    labels: ['no revisada', 'revisada'],
+    datasets: [{
+    label: 'Estado de revision',
+    data: [ {{$phoenixrevisada}},{{$phoenixnorevisada}}],
+    backgroundColor:
+    ['rgba(255, 206, 99, 0.2)',
+     'rgba(54, 88, 100, 0.2)'],
+    borderColor:
+    ['rgba(255, 206, 50, 1)',
+     'rgba(54, 88, 100, 1)'],
+    borderWidth: 5
+    }]
+    },
+    options: {
+    scales: {
+    yAxes: [{
+    ticks: {
+    beginAtZero: true
+    }
+    }]
+    }
+    }
+    });
+    </script>
+
+
+  {{--final grafico phoenix--}}
+
+
     <script src="{{asset('js/app.js')}}"></script>
     </body>
     @section('css')
