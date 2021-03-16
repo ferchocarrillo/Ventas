@@ -2,8 +2,7 @@
 
 namespace App\Exports;
 
-use App\phoenix;
-
+use App\Phoenix;
 use Maatwebsite\Excel\Concerns\FromCollection;
 
 class PhoenixExport implements FromCollection
@@ -13,6 +12,6 @@ class PhoenixExport implements FromCollection
     */
     public function collection()
     {
-        return phoenix::all();
+        return Phoenix::all();
     }
 }

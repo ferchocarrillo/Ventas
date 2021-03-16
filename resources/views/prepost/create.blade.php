@@ -87,7 +87,7 @@
                         <input type="number" id ="token" name="token" class="form-control"  placeholder="Token" required>
                         </div>
                         <div class="form-group col-md-12">
-                        <textarea  id ="observaciones" name="observaciones" class="form-control" rows="3" placeholder="Observaciones"></textarea>
+                        <textarea  id ="observaciones" name="observaciones" class="form-control" rows="3" placeholder="Observaciones" required></textarea>
                         </div>
 
                         <div class="card-footer">

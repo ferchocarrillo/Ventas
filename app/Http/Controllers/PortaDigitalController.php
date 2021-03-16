@@ -91,7 +91,7 @@ class PortaDigitalController extends Controller
     public function store(Request $request , Portadigital $portadigitals)
     {
 
-        $user_id = Auth::user()->id;
+        $user_id = Auth::user()->cedula;
         $user_nombre = Auth::user()->name;
 
         $portadigitals = new PortaDigital();
@@ -116,11 +116,11 @@ class PortaDigitalController extends Controller
         $portadigitals->origen          = $request ->origen;
         $portadigitals->ngrabacion      = $request ->ngrabacion;
         $portadigitals->observaciones   = $request ->observaciones;
-        $portadigitals->agente          = $user_id.','.$user_nombre;
+        $portadigitals->agente          = $user_id;
         $portadigitals->revisados       = $request ->revisados;
         $portadigitals->estadorevisado  = $request ->estadorevisado;
         $portadigitals->obs2            = $request ->obs2;
-        $portadigitals->backoffice      = $user_id.','.$user_nombre;
+        $portadigitals->backoffice      = $user_id;
         $portadigitals->save();
 
 

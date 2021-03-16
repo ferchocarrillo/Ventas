@@ -8,7 +8,4 @@ class Porta extends Model
 {
 
     protected $table='portas';
-
-
 }
-

@@ -60,6 +60,7 @@ use Illuminate\Support\Facades\Gate;
     Route::resource('prepostdigital', PrepostDigitalController::class);
     Route::resource('lineanueva', LineaNuevaController::class);
     Route::resource('phoenix', PhoenixController::class);
+    Route::resource('fijadigital', FijaDigitalController::class);
 
 
 
@@ -78,7 +79,7 @@ use Illuminate\Support\Facades\Gate;
     Route::get('prepostDigital-list-excel', 'PrepostDigitalController@exportExcel')->name('prepostDigital.excel');
     Route::get('fijaDigital-list-excel', 'FijaDigitalController@exportExcel')->name('fijaDigital.excel');
     Route::get('portadigital-list-excel', 'PortaDigitalController@exportExcel')->name('portadigital.excel');
-    Route::get('lineanueva-list-excel', 'lineaNuevaController@exportExcel')->name('lineanueva.excel');
+    Route::get('lineanueva-list-excel', 'LineaNuevaController@exportExcel')->name('lineanueva.excel');
     Route::get('phoenix-list-excel', 'PhoenixController@exportExcel')->name('phoenix.excel');
 
 

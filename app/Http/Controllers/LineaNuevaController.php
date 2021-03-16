@@ -28,7 +28,7 @@ use App\Revisados;
 use App\User;
 use stdClass;
 use Maatwebsite\Excel\Facades\Excel;
-use App\Exports\lineaNuevaExport;
+use App\Exports\LineaNuevaExport; 
 
 class LineaNuevaController extends Controller
 {
@@ -112,11 +112,11 @@ class LineaNuevaController extends Controller
         $lineanuevas->origen          = $request ->origen;
         $lineanuevas->ngrabacion      = $request ->ngrabacion;
         $lineanuevas->observaciones   = $request ->observaciones;
-        $lineanuevas->agente          = $user_id.','.$user_nombre;
+        $lineanuevas->agente          = $user_id;
         $lineanuevas->revisados       = $request ->revisados;
         $lineanuevas->estadorevisado  = $request ->estadorevisado;
         $lineanuevas->obs2            = $request ->obs2;
-        $lineanuevas->backoffice      = $user_id.','.$user_nombre;
+        $lineanuevas->backoffice      = $user_id;
         $lineanuevas->save();
 
 
@@ -158,7 +158,7 @@ class LineaNuevaController extends Controller
         $origen = Origen::all();
         $revisadoses = Revisados::all();
         $usuarios = User::all();
-        $this->authorize('haveaccess','linenuevas.edit');
+        $this->authorize('haveaccess','lineanueva.edit');
 
         return view('lineanueva.edit',compact('lineanuevas','depto','revisadoses','tipoCliente','origen','planadquiere', 'usuarios'));
      }
@@ -199,7 +199,7 @@ class LineaNuevaController extends Controller
 
     public function exportExcel()
     {
-    return Excel::download(new lineaNuevaExport, 'lineanueva-list.xlsx');
+    return Excel::download(new LineaNuevaExport, 'lineanueva-list.xlsx');
 
     }
 

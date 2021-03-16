@@ -72,7 +72,7 @@ class UpgradeDigitalController extends Controller
     public function store(Request $request)
 
     {
-        $user_id = Auth::user()->id;
+        $user_id = Auth::user()->cedula;
         $user_nombre = Auth::user()->name;
 
         $upgrade = new upgradeDigital();
@@ -87,11 +87,11 @@ class UpgradeDigitalController extends Controller
         $upgrade->activacion          = $request ->activacion;
         $upgrade->ngrabacion          = $request ->ngrabacion;
         $upgrade->observacion         = $request ->observacion;
-        $upgrade->agente              = $user_id.','.$user_nombre;
+        $upgrade->agente              = $user_id;
         $upgrade->revisados           = $request ->revisados;
         $upgrade->estadorevisado      = $request ->estadorevisado;
         $upgrade->obs2                = $request ->obs2;
-        $upgrade->backoffice          = $user_id.','.$user_nombre;
+        $upgrade->backoffice          = $user_id;
         $upgrade->save();
         return back() ;
     }

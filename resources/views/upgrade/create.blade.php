@@ -73,7 +73,7 @@
                             <input type="number" id ="ngrabacion" name="ngrabacion" class="form-control" placeholder="Numero de Grabacion" required>
                         </div>
                         <div class="form-group col-md-12">
-                            <textarea  id ="observacion" name="observacion" class="form-control" rows="3" placeholder="Observaciones"></textarea>
+                            <textarea  id ="observacion" name="observacion" class="form-control" rows="3" placeholder="Observaciones" required></textarea>
                         </div>
 
 

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\phoenix;
+use App\Phoenix;
 use App\JhonatanPermission\Models\Porta;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -103,11 +103,11 @@ class PhoenixController extends Controller
         $phoenixes->origen          = $request ->origen;
         $phoenixes->ngrabacion      = $request ->ngrabacion;
         $phoenixes->observaciones   = $request ->observaciones;
-        $phoenixes->agente          = $user_id.','.$user_nombre;
+        $phoenixes->agente          = $user_id;
         $phoenixes->revisados       = $request ->revisados;
         $phoenixes->estadorevisado  = $request ->estadorevisado;
         $phoenixes->obs2            = $request ->obs2;
-        $phoenixes->backoffice      = $user_id.','.$user_nombre;
+        $phoenixes->backoffice      = $user_id;
         $phoenixes->save();
 
 
@@ -185,4 +185,11 @@ class PhoenixController extends Controller
     {
         //
     }
+public function exportExcel()
+{
+return Excel::download(new PhoenixExport, 'phoenix-list.xlsx');
+
+}
+
+
 }

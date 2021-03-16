@@ -94,7 +94,7 @@ class PrepostController extends Controller
      */
     public function store(Request $request)
     {
-        $user_id = Auth::user()->id;
+        $user_id = Auth::user()->cedula;
         $user_nombre = Auth::user()->name;
         $prepost = new Prepost();
         $prepost->numero             = $request ->numero;
@@ -112,11 +112,11 @@ class PrepostController extends Controller
         $prepost->activacion           = $request ->activacion;
         $prepost->token                = $request ->token;
         $prepost->observaciones        = $request ->observaciones;
-        $prepost->agente               = $user_id.','.$user_nombre;
+        $prepost->agente               = $user_id;
         $prepost->revisados            = $request ->revisados;
         $prepost->estadorevisado       = $request ->estadorevisado;
         $prepost->obs2                 = $request ->obs2;
-        $prepost->backoffice           = $user_id.','.$user_nombre;
+        $prepost->backoffice           = $user_id;
 
         $prepost->save();
         return back() ;

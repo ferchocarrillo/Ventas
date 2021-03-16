@@ -79,7 +79,7 @@ class FijaDigitalController extends Controller
      */
     public function store(Request $request, fijaDigital $fijas)
     {
-        $user_id = Auth::user()->id;
+        $user_id = Auth::user()->cedula;
         $user_nombre = Auth::user()->name;
 
         $fijas = new fijaDigital();
@@ -105,11 +105,11 @@ class FijaDigitalController extends Controller
         $fijas->velocidad       = $request ->velocidad;
         $fijas->tecnologia      = $request ->tecnologia;
         $fijas->observacion     = $request ->observacion;
-        $fijas->agente          = $user_id.','.$user_nombre;
-        $fijas->revisados        = $request ->revisados;
+        $fijas->agente          = $user_id;
+        $fijas->revisados       = $request ->revisados;
         $fijas->estadorevisado  = $request ->estadorevisado;
         $fijas->obs2            = $request ->obs2;
-        $fijas->backoffice      = $user_nombre;
+        $fijas->backoffice      = $user_id;
         $fijas->save();
         return back();
 

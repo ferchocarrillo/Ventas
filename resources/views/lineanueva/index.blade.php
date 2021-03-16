@@ -87,7 +87,7 @@ para descargar en Excel la base de lineas nuevas
 @section('js')
 <script>
 Swal.fire(
-'PORTABILIDAD DIGITAL',
+'LINEA NUEVA',
 'Lista de registros',
 'success'
 )

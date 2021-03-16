@@ -91,7 +91,7 @@ class PortaController extends Controller
     public function store(Request $request , Porta $portas)
     {
 
-        $user_id = Auth::user()->id;
+        $user_id = Auth::user()->cedula;
         $user_nombre = Auth::user()->name;
 
         $portas = new Porta();
@@ -116,11 +116,11 @@ class PortaController extends Controller
         $portas->origen          = $request ->origen;
         $portas->ngrabacion      = $request ->ngrabacion;
         $portas->observaciones   = $request ->observaciones;
-        $portas->agente          = $user_id.','.$user_nombre;
+        $portas->agente          = $user_id;
         $portas->revisados       = $request ->revisados;
         $portas->estadorevisado  = $request ->estadorevisado;
         $portas->obs2            = $request ->obs2;
-        $portas->backoffice      = $user_id.','.$user_nombre;
+        $portas->backoffice      = $user_id;
         $portas->save();
 
 
