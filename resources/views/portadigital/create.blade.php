@@ -99,7 +99,7 @@
                   <input type="number" id ="ngrabacion" name="ngrabacion" class="form-control"  placeholder="Numero de grabacion" required>
                   </div>
                   <div class="form-group col-md-12">
-                  <textarea  id ="observaciones" name="observaciones" class="form-control" rows="3" placeholder="Observaciones"></textarea>
+                  <textarea  id ="observaciones" name="observaciones" class="form-control" rows="3" placeholder="Observaciones" required></textarea>
                   </div>
 
                   <div class="card-footer">
