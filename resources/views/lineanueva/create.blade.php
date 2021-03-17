@@ -29,6 +29,17 @@
                     <input type="mail" id ="correo" name="correo" class="form-control" placeholder="Ingrese correo electronico ejemplo@gmail.com" required>
                   </div>
                   <div class="form-group col-md-6">
+                    <label for="">Seleccione una Opción</label>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="selector" id="selector1" value="leads" required>
+                        <label class="form-check-label" for="selector1">Leads</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="selector" id="selector2" value="BBDD">
+                        <label class="form-check-label" for="selector2">BBDD</label>
+                      </div>
+                    </div>
+                  <div class="form-group col-md-6">
                     <select name="departamento" id="departamento" class="form-control"  required>
                        <option value="">Departamento</option>
                        @foreach($depto as $departamento)
@@ -59,45 +70,46 @@
                         @endforeach
                     </select>
                   </div>
-                  <div class="form-group col-md-6">
+                  {{--  <div class="form-group col-md-6">
                   <select name="planadquiere" id="planadquiere" class="form-control"  required>
                         <option value="0">Plan que adquire</option>
                         @foreach($planadquiere as $planadquieres)
                             <option value="{{ $planadquieres->planadquiere }}">{{ $planadquieres->planadquiere }}</option>
                         @endforeach
                   </select>
-                  </div>
+                  </div>  --}}
                   <div class="form-group col-md-6">
                     <input type="number" id ="ncontacto" name="ncontacto" class="form-control" placeholder="Numero de contacto"required>
                   </div>
-                  <div class="form-group col-md-6">
+                  {{--  <div class="form-group col-md-6">
                     <input type="number" id ="imei" name="imei" class="form-control" placeholder="Imei"required>
-                  </div>
-                  <div class="form-group col-md-6"></div>
-                  <div class="col-sm-3 col-form-label">
+                  </div>  --}}
+
+                  {{--  <div class="col-sm-3 col-form-label">
                     <label for="fvc">FVC</label>
                     <input type="date" id ="fvc" name="fvc" class="form-control" placeholder="FVC"required>
-                  </div>
-                  <div class="col-sm-3 col-form-label">
+                  </div>  --}}
+                  {{--  <div class="col-sm-3 col-form-label">
                     <label for="fentrega">Fecha Entrega</label>
                     <input type="date" id ="fentrega" name="fentrega" class="form-control" placeholder="Fecha de entrega"required>
-                  </div>
-                  <div class="col-sm-3 col-form-label">
+                  </div>  --}}
+
+                  {{--  <div class="col-sm-3 col-form-label">
                     <label for="fexpedicion">Fecha Expedición</label>
                     <input type="date" id ="fexpedicion" name="fexpedicion" class="form-control" placeholder="Fecha de expedición"required>
-                  </div>
-                  <div class="col-sm-3 col-form-label">
+                  </div>  --}}
+                  {{--  <div class="col-sm-3 col-form-label">
                     <label for="fnacimiento">Fecha Nacimiento</label>
                     <input type="date" id ="fnacimiento" name="fnacimiento" class="form-control" placeholder="Fecha de Nacimiento"required>
-                  </div>
-                  <div class="form-group col-md-6">
+                  </div>  --}}
+                  {{--  <div class="form-group col-md-6">
                   <select name="origen" id="origen" class="form-control"  required>
                         <option value="0">Origen de la migracion</option>
                         @foreach($origen as $origens)
                             <option value="{{ $origens->origen }}">{{ $origens->origen }}</option>
                         @endforeach
                   </select>
-                  </div>
+                  </div>  --}}
                   <div class="form-group col-md-6">
                   <input type="number" id ="ngrabacion" name="ngrabacion" class="form-control"  placeholder="Numero de grabacion" required>
                   </div>

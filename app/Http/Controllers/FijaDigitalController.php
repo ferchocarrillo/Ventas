@@ -35,12 +35,12 @@ class FijaDigitalController extends Controller
      */
     public function index()
     {
-        
+
             $fijas = fijaDigital::orderBy('revisados', 'asc')->paginate(10);
             return view('fijadigital.index',compact('fijas'));
-    
-    
-        
+
+
+
     }
 
     /**
@@ -92,6 +92,7 @@ class FijaDigitalController extends Controller
         $fijas->direccion       = $request ->direccion;
         $fijas->barrio          = $request ->barrio;
         $fijas->estrato         = $request ->estrato;
+        $fijas->selector        = $request ->selector;
         $fijas->ngrabacion      = $request ->ngrabacion;
         $fijas->ncontacto       = $request ->ncontacto;
         $fijas->producto        = $request ->producto;

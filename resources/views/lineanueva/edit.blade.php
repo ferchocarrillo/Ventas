@@ -71,6 +71,16 @@
   </div>
 
   <div class="form-group col-md-6">
+    <label for="selector">Selector</label>
+       <input type="text"
+       class="form-control"
+       id="selector"
+       placeholder="Selector"
+       name="selector"
+       value="{{ old('selector' , $lineanuevas->selector)}}">
+  </div>
+
+  <div class="form-group col-md-6">
     <label for="departamento">Departamento</label>
        <input type="text"
        class="form-control"
@@ -116,7 +126,7 @@
        name="nip"
        value="{{ old('nip' , $portadigitals->nip)}}">
   </div>  --}}
-  <div class="form-group col-md-6">
+  <div class="form-group col-md-4">
     <label for="tipocliente">Tipo cliente</label>
        <input type="text"
        class="form-control"
@@ -125,7 +135,7 @@
        name="tipocliente"
        value="{{ old('tipocliente' , $lineanuevas->tipocliente)}}">
   </div>
-  <div class="form-group col-md-6">
+  {{--  <div class="form-group col-md-6">
     <label for="planadquiere">Plan adquiere</label>
        <input type="number"
        class="form-control"
@@ -133,8 +143,8 @@
        placeholder="plan adquiere"
        name="planadquiere"
        value="{{ old('planadquiere' , $lineanuevas->planadquiere)}}">
-  </div>
-  <div class="form-group col-md-6">
+  </div>  --}}
+  <div class="form-group col-md-4">
     <label for="ncontacto">Numero de contacto</label>
        <input type="number"
        class="form-control"
@@ -143,7 +153,7 @@
        name="ncontacto"
        value="{{ old('ncontacto' , $lineanuevas->ncontacto)}}">
   </div>
-  <div class="form-group col-md-6">
+  {{--  <div class="form-group col-md-6">
     <label for="imei">Imei</label>
        <input type="number"
        class="form-control"
@@ -196,8 +206,8 @@
        placeholder="Origen"
        name="origen"
        value="{{ old('origen' , $lineanuevas->origen)}}">
-  </div>
-  <div class="form-group col-md-6">
+  </div>  --}}
+  <div class="form-group col-md-4">
     <label for="ngrabacion">Numero de grabacion</label>
        <input type="number"
        class="form-control"

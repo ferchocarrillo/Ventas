@@ -28,7 +28,7 @@ use App\Revisados;
 use App\User;
 use stdClass;
 use Maatwebsite\Excel\Facades\Excel;
-use App\Exports\LineaNuevaExport; 
+use App\Exports\LineaNuevaExport;
 
 class LineaNuevaController extends Controller
 {
@@ -102,14 +102,8 @@ class LineaNuevaController extends Controller
         $lineanuevas->barrio          = $request ->barrio;
         $lineanuevas->direccion       = $request ->direccion;
         $lineanuevas->tipocliente     = $request ->tipocliente;
-        $lineanuevas->planadquiere    = $request ->planadquiere;
+        $lineanuevas->selector        = $request ->selector;
         $lineanuevas->ncontacto       = $request ->ncontacto;
-        $lineanuevas->imei            = $request ->imei;
-        $lineanuevas->fvc             = $request ->fvc;
-        $lineanuevas->fentrega        = $request ->fentrega;
-        $lineanuevas->fexpedicion     = $request ->fexpedicion;
-        $lineanuevas->fnacimiento     = $request ->fnacimiento;
-        $lineanuevas->origen          = $request ->origen;
         $lineanuevas->ngrabacion      = $request ->ngrabacion;
         $lineanuevas->observaciones   = $request ->observaciones;
         $lineanuevas->agente          = $user_id;

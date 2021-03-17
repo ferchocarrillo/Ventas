@@ -104,6 +104,7 @@ class PrepostDigitalController extends Controller
         $prepost->fexpedicion          = $request ->fexpedicion;
         $prepost->tipocliente          = $request ->tipocliente;
         $prepost->correo               = $request ->correo;
+        $prepost->selector             = $request ->selector;
         $prepost->departamento         = $request ->departamento;
         $prepost->ciudad               = $request ->id_ciudad;
         $prepost->barrio               = $request ->barrio;

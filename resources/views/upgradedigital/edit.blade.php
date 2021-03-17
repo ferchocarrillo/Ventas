@@ -42,6 +42,15 @@
              name="correo"
              value="{{ old('correo', $upgrade->correo)}}">
          </div>
+
+         <div class="form-group col-md-6">
+            <label for="selector">Selector</label>
+             <input type="text" class="form-control"
+             id="selector"
+             placeholder="Selector"
+             name="selector"
+             value="{{ old('selector', $upgrade->selector)}}">
+         </div>
          <div class="form-group col-md-6">
             <label for="fventa">Fecha de venta</label>
                <input type="date"

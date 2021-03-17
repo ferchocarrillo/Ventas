@@ -69,6 +69,16 @@
        name="correo"
        value="{{ old('correo' , $phoenixes->correo)}}">
   </div>
+  <div class="form-group col-md-6">
+    <label for="selector">Selector</label>
+       <input type="text"
+       class="form-control"
+       id="selector"
+       placeholder="Selector"
+       name="selector"
+       value="{{ old('selector' , $phoenixes->selector)}}">
+  </div>
+
 
   <div class="form-group col-md-6">
     <label for="departamento">Departamento</label>
@@ -125,7 +135,7 @@
        name="tipocliente"
        value="{{ old('tipocliente' , $phoenixes->tipocliente)}}">
   </div>
-  <div class="form-group col-md-6">
+  {{--  <div class="form-group col-md-6">
     <label for="planadquiere">Plan adquiere</label>
        <input type="number"
        class="form-control"
@@ -133,7 +143,7 @@
        placeholder="plan adquiere"
        name="planadquiere"
        value="{{ old('planadquiere' , $phoenixes->planadquiere)}}">
-  </div>
+  </div>  --}}
   <div class="form-group col-md-6">
     <label for="ncontacto">Numero de contacto</label>
        <input type="number"
@@ -143,7 +153,7 @@
        name="ncontacto"
        value="{{ old('ncontacto' , $phoenixes->ncontacto)}}">
   </div>
-  <div class="form-group col-md-6">
+  {{--  <div class="form-group col-md-6">
     <label for="imei">Imei</label>
        <input type="number"
        class="form-control"
@@ -151,7 +161,7 @@
        placeholder="Imei"
        name="imei"
        value="{{ old('imei' , $phoenixes->imei)}}">
-  </div>
+  </div>  --}}
 
   <div class="form-group col-md-6">
     <label for="imei">Modelo</label>
@@ -163,7 +173,7 @@
        value="{{ old('modelo' , $phoenixes->modelo)}}">
   </div>
 
-  <div class="form-group col-md-6">
+  {{--  <div class="form-group col-md-6">
     <label for="fvc">FVC</label>
        <input type="date"
        class="form-control"
@@ -207,7 +217,7 @@
        placeholder="Origen"
        name="origen"
        value="{{ old('origen' , $phoenixes->origen)}}">
-  </div>
+  </div>  --}}
   <div class="form-group col-md-6">
     <label for="ngrabacion">Numero de grabacion</label>
        <input type="number"

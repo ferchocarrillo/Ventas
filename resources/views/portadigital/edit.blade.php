@@ -71,6 +71,16 @@
   </div>
 
   <div class="form-group col-md-6">
+    <label for="selector">Selector</label>
+       <input type="text"
+       class="form-control"
+       id="selector"
+       placeholder="Selector"
+       name="selector"
+       value="{{ old('selector' , $portadigitals->selector)}}">
+  </div>
+
+  <div class="form-group col-md-6">
     <label for="departamento">Departamento</label>
        <input type="text"
        class="form-control"

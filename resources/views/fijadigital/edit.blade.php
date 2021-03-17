@@ -60,8 +60,18 @@
                value="{{ old('correo' , $fijas->correo)}}">
           </div>
 
+          <div class="form-group col-md-4">
+            <label for="selector">Selector</label>
+               <input type="text"
+               class="form-control"
+               id="selector"
+               placeholder="Selector"
+               name="selector"
+               value="{{ old('selector' , $fijas->selector)}}">
+          </div>
 
-          <div class="form-group col-md-6">
+
+          <div class="form-group col-md-4">
             <label for="departamento">Departamento</label>
                <input type="text"
                class="form-control"
@@ -71,7 +81,7 @@
                value="{{ old('departamento' , $fijas->departamento)}}">
           </div>
 
-          <div class="form-group col-md-6">
+          <div class="form-group col-md-4">
             <label for="ciudad">Ciudad</label>
                <input type="text"
                class="form-control"

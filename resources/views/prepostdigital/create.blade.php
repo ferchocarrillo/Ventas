@@ -29,7 +29,7 @@
                         <div class="form-group col-md-3">
                         <input type="date" id ="fexpedicion" name="fexpedicion" class="form-control" placeholder="Fecha de venta" required>
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-3">
                         <select name="tipocliente" id="tipocliente" class="form-control" required>
                         <option value="0">Tipo de cliente</option>
                         @foreach($tipocliente as $tipoclientes)
@@ -38,9 +38,20 @@
                         </select>
                         </div>
 
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-3">
                         <input type="mail" id ="correo" name="correo" class="form-control" placeholder="Ingrese correo electronico ejemplo@gmail.com" required>
                         </div>
+                        <div class="form-group col-md-6">
+                            <label for="">Seleccione una Opción</label>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="selector" id="selector1" value="leads" required>
+                                <label class="form-check-label" for="selector1">Leads</label>
+                              </div>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="selector" id="selector2" value="BBDD">
+                                <label class="form-check-label" for="selector2">BBDD</label>
+                              </div>
+                            </div>
 
                         <div class="form-group col-md-6">
                             <select name="departamento" id="departamento" class="form-control"  required>

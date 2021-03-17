@@ -76,6 +76,15 @@
                name="correo"
                value="{{ old('correo' , $prepost->correo)}}">
           </div>
+          <div class="form-group col-md-6">
+            <label for="selector">Selector</label>
+               <input type="text"
+               class="form-control"
+               id="selector"
+               placeholder="Selector"
+               name="selector"
+               value="{{ old('selector' , $prepost->selector)}}">
+          </div>
 
           <div class="form-group col-md-6">
             <label for="departamento">Departamento</label>
@@ -126,7 +135,7 @@
                value="{{ old('corte', $prepost->corte)}}">
           </div>
 
-          <div class="form-group col-md-6">
+          <div class="form-group col-md-4">
             <label for="planventa">Plan venta</label>
             <input type="number" class="form-control"
             id="planventa"
@@ -135,7 +144,7 @@
             value="{{ old('planventa', $prepost->planventa)}}">
            </div>
 
-           <div class="form-group col-md-6">
+           <div class="form-group col-md-4">
             <label for="activacion">Activacion</label>
             <input type="text" class="form-control"
             id="activacion"
@@ -144,7 +153,7 @@
             value="{{ old('activacion', $prepost->activacion)}}">
            </div>
 
-           <div class="form-group col-md-6">
+           <div class="form-group col-md-4">
             <label for="token">Token</label>
             <input type="number" class="form-control"
             id="token"

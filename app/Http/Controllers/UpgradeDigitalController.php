@@ -30,7 +30,7 @@ class UpgradeDigitalController extends Controller
     {
         $upgrades = upgradeDigital::orderBy('revisados', 'asc')->paginate(10);
             return view('upgradedigital.index',compact('upgrades'));
-    
+
         }
 
     /**
@@ -82,6 +82,7 @@ class UpgradeDigitalController extends Controller
         $upgrade->fventa              = $request ->fventa;
         $upgrade->numero              = $request ->numero;
         $upgrade->corte               = $request ->corte;
+        $upgrade->selector            = $request ->selector;
         $upgrade->planhistorico       = $request->planhistorico;
         $upgrade->planventa           = $request->planadquiere;
         $upgrade->activacion          = $request ->activacion;
@@ -172,6 +173,6 @@ class UpgradeDigitalController extends Controller
     return Excel::download(new UpgradeDigitalExport, 'upgradeDigital-list.xlsx');
 
 
-    
+
     }
 }

@@ -100,6 +100,7 @@ class PortaDigitalController extends Controller
         $portadigitals->nombres         = $request ->nombres;
         $portadigitals->apellidos       = $request ->apellidos;
         $portadigitals->correo          = $request ->correo;
+        $portadigitals->selector        = $request ->selector;
         $portadigitals->departamento    = $request ->departamento;
         $portadigitals->ciudad          = $request ->id_ciudad;
         $portadigitals->barrio          = $request ->barrio;

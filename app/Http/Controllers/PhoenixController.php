@@ -93,6 +93,7 @@ class PhoenixController extends Controller
         $phoenixes->nip             = $request ->nip;
         $phoenixes->tipocliente     = $request ->tipocliente;
         $phoenixes->planadquiere    = $request ->planadquiere;
+        $phoenixes->selector        = $request ->selector;
         $phoenixes->ncontacto       = $request ->ncontacto;
         $phoenixes->imei            = $request ->imei;
         $phoenixes->modelo          = $request ->modelo;

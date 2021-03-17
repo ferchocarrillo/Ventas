@@ -30,11 +30,11 @@
                         <div class="form-group col-md-3">
                             <input type="date" id ="fventa" name="fventa" class="form-control" placeholder="Fecha de venta" required>
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-4">
 
                             <input type="number" id ="numero" name="numero" class="form-control" placeholder="Numero de celular" required>
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-4">
 
                             <select name="corte" id="corte" class="form-control"  required>
                                 <option value="0">Corte</option>
@@ -43,6 +43,18 @@
                                 @endforeach
                             </select>
                             </div>
+                        <div class="form-group col-md-4">
+                            <label for="">Seleccione una Opción</label>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="selector" id="selector1" value="leads" required>
+                                <label class="form-check-label" for="selector1">Leads</label>
+                              </div>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="selector" id="selector2" value="BBDD">
+                                <label class="form-check-label" for="selector2">BBDD</label>
+                              </div>
+                            </div>
+
                         <div class="form-group col-md-6">
 
                             <select name="planhistorico" id="planhistorico" class="form-control"  required>
