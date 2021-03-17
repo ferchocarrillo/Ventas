@@ -139,7 +139,7 @@
                                       </div>
                                     </div>
 
-                                    <div class="form-group col-md-6">
+                                    <div class="form-group col-md-4">
                                         <select name="velocidad" id="velocidad" class="form-control" required>
                                             <option value="0">Velocidad</option>
                                             @foreach($velocidad as $velocidads)
@@ -147,7 +147,7 @@
                                             @endforeach
                                         </select>
                                       </div>
-                                      <div class="form-group col-md-6">
+                                      <div class="form-group col-md-4">
                                         <select name="tecnologia" id="tecnologia" class="form-control" required>
                                             <option value="0">Tecnologia</option>
                                             @foreach($tecnologia as $tecnologias)
@@ -155,6 +155,9 @@
                                             @endforeach
                                         </select>
                                       </div>
+                                      <div class="form-group col-md-4">
+                                        <input type="orden" id ="orden" name="orden" class="form-control" placeholder="Numero de Orden" required>
+                                        </div>
                                       <div class="form-group col-md-12">
                                         <textarea  id ="observacion" name="observacion" class="form-control" rows="3" placeholder="Observaciones" required></textarea>
                                         </div>

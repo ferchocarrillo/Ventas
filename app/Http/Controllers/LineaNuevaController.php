@@ -105,6 +105,7 @@ class LineaNuevaController extends Controller
         $lineanuevas->selector        = $request ->selector;
         $lineanuevas->ncontacto       = $request ->ncontacto;
         $lineanuevas->ngrabacion      = $request ->ngrabacion;
+        $lineanuevas->orden           = $request ->orden;
         $lineanuevas->observaciones   = $request ->observaciones;
         $lineanuevas->agente          = $user_id;
         $lineanuevas->revisados       = $request ->revisados;

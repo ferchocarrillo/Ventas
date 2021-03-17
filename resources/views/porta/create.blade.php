@@ -87,7 +87,7 @@
                     <label for="fnacimiento">Fecha Nacimiento</label>
                     <input type="date" id ="fnacimiento" name="fnacimiento" class="form-control" placeholder="Fecha de Nacimiento"required>
                   </div>
-                  <div class="form-group col-md-6">
+                  <div class="form-group col-md-4">
                   <select name="origen" id="origen" class="form-control"  required>
                         <option value="0">Origen de la migracion</option>
                         @foreach($origen as $origens)
@@ -95,9 +95,12 @@
                         @endforeach
                   </select>
                   </div>
-                  <div class="form-group col-md-6">
+                  <div class="form-group col-md-4">
                   <input type="number" id ="ngrabacion" name="ngrabacion" class="form-control"  placeholder="Numero de grabacion" required>
                   </div>
+                  <div class="form-group col-md-4">
+                    <input type="orden" id ="orden" name="orden" class="form-control" placeholder="Numero de Orden" required>
+                    </div>
                   <div class="form-group col-md-12">
                   <textarea  id ="observaciones" name="observaciones" class="form-control" rows="3" placeholder="Observaciones" required></textarea>
                   </div>

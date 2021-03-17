@@ -4,8 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Linea extends Model
+class tPago extends Model
 {
-
-    protected $table='lineas';
+    protected $table='t_pagos';
 }

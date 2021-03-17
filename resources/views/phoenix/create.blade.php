@@ -76,15 +76,31 @@
                         @endforeach
                   </select>
                   </div>  --}}
-                  <div class="form-group col-md-6">
+                  <div class="form-group col-md-4">
                     <input type="number" id ="ncontacto" name="ncontacto" class="form-control" placeholder="Numero de contacto"required>
                   </div>
                   {{--  <div class="form-group col-md-6">
                     <input type="number" id ="imei" name="imei" class="form-control" placeholder="Imei"required>
                   </div>  --}}
-                  <div class="form-group col-md-6">
-                    <input type="text" id ="modelo" name="modelo" class="form-control" placeholder="Modelo"required>
-                  </div>
+                  <div class="form-group col-md-4">
+
+                    <select name="modelo" id="modelo" class="form-control" required>
+                        <option value="0">Modelos</option>
+                        @foreach($modelos as $modelo)
+                            <option value="{{ $modelo->modelo}}">{{ $modelo->modelo }}</option>
+                        @endforeach
+                    </select>
+              </div>
+
+              <div class="form-group col-md-4">
+
+                <select name="tipoP" id="tipoP" class="form-control" required>
+                    <option value="0">Tipo Plan</option>
+                    @foreach($tplanes as $tplan)
+                        <option value="{{ $tplan->tipoP}}">{{ $tplan->tipoP }}</option>
+                    @endforeach
+                </select>
+          </div>
 
                   {{--  <div class="col-sm-3 col-form-label">
                     <label for="fvc">FVC</label>
@@ -110,9 +126,21 @@
                         @endforeach
                   </select>
                   </div>  --}}
-                  <div class="form-group col-md-6">
+                  <div class="form-group col-md-4">
                   <input type="number" id ="ngrabacion" name="ngrabacion" class="form-control"  placeholder="Numero de grabacion" required>
                   </div>
+                  <div class="form-group col-md-4">
+
+                    <select name="tipoPagos" id="tipoPagos" class="form-control" required>
+                        <option value="0">Tipo Pago</option>
+                        @foreach($tipoPagoses as $tipoPagos)
+                            <option value="{{ $tipoPagos->tipoPagos}}">{{ $tipoPagos->tipoPagos }}</option>
+                        @endforeach
+                    </select>
+              </div>
+              <div class="form-group col-md-4">
+                <input type="orden" id ="orden" name="orden" class="form-control" placeholder="Numero de Orden" required>
+                </div>
                   <div class="form-group col-md-12">
                   <textarea  id ="observaciones" name="observaciones" class="form-control" rows="3" placeholder="Observaciones" required></textarea>
                   </div>

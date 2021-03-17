@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePlanesPrepostTable extends Migration
+class CreateTPlanTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreatePlanesPrepostTable extends Migration
      */
     public function up()
     {
-        Schema::create('planes_prepost', function (Blueprint $table) {
+        Schema::create('tPlanes', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('planes');
+            $table->string ('tipoP');
+
+
         });
     }
 
@@ -26,6 +28,6 @@ class CreatePlanesPrepostTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('planes_prepost');
+        Schema::dropIfExists('tPlanes');
     }
 }

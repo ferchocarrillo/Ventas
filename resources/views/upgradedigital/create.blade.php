@@ -30,11 +30,11 @@
                         <div class="form-group col-md-3">
                             <input type="date" id ="fventa" name="fventa" class="form-control" placeholder="Fecha de venta" required>
                         </div>
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-md-3">
 
                             <input type="number" id ="numero" name="numero" class="form-control" placeholder="Numero de celular" required>
                         </div>
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-md-3">
 
                             <select name="corte" id="corte" class="form-control"  required>
                                 <option value="0">Corte</option>
@@ -43,7 +43,7 @@
                                 @endforeach
                             </select>
                             </div>
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-md-6">
                             <label for="">Seleccione una Opción</label>
                               <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="selector" id="selector1" value="leads" required>
@@ -72,7 +72,7 @@
                                       @endforeach
                                 </select>
                                 </div>
-                                <div class="form-group col-md-6">
+                                <div class="form-group col-md-4">
 
                                     <select name="activacion" id="activacion" class="form-control"  required>
                                         <option value="0">Activacion</option>
@@ -81,9 +81,12 @@
                                         @endforeach
                                     </select>
                                     </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-4">
                             <input type="number" id ="ngrabacion" name="ngrabacion" class="form-control" placeholder="Numero de Grabacion" required>
                         </div>
+                        <div class="form-group col-md-4">
+                            <input type="orden" id ="orden" name="orden" class="form-control" placeholder="Numero de Orden" required>
+                            </div>
                         <div class="form-group col-md-12">
                             <textarea  id ="observacion" name="observacion" class="form-control" rows="3" placeholder="Observaciones" required></textarea>
                         </div>

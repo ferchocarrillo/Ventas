@@ -60,7 +60,7 @@
                                       @endforeach
                                 </select>
                                 </div>
-                                <div class="form-group col-md-6">
+                                <div class="form-group col-md-4">
 
                                     <select name="activacion" id="activacion" class="form-control"  required>
                                         <option value="0">Activacion</option>
@@ -69,9 +69,13 @@
                                         @endforeach
                                     </select>
                                     </div>
-                        <div class="form-group col-md-6">
+
+                        <div class="form-group col-md-4">
                             <input type="number" id ="ngrabacion" name="ngrabacion" class="form-control" placeholder="Numero de Grabacion" required>
                         </div>
+                        <div class="form-group col-md-4">
+                            <input type="orden" id ="orden" name="orden" class="form-control" placeholder="Numero de Orden" required>
+                            </div>
                         <div class="form-group col-md-12">
                             <textarea  id ="observacion" name="observacion" class="form-control" rows="3" placeholder="Observaciones" required></textarea>
                         </div>
@@ -137,7 +141,7 @@
          });
      </script>
 
-<script type="text/javascript">
+{{-- <script type="text/javascript">
     //<![CDATA[
     // Nieve en el blog
     /** @license
@@ -175,6 +179,6 @@
 
     a.resizeHandler();a.usePositionFixed=a.usePositionFixed&&!t;n=a.usePositionFixed;if(h&&j&&!a.disabled)a.init(),a.active=true};a.events.add(e,"load",r,false);return this}(window,document);
     //]]>
-    </script>
+    </script> --}}
      @endsection
 

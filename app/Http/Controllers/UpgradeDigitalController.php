@@ -87,6 +87,7 @@ class UpgradeDigitalController extends Controller
         $upgrade->planventa           = $request->planadquiere;
         $upgrade->activacion          = $request ->activacion;
         $upgrade->ngrabacion          = $request ->ngrabacion;
+        $upgrade->orden               = $request ->orden;
         $upgrade->observacion         = $request ->observacion;
         $upgrade->agente              = $user_id;
         $upgrade->revisados           = $request ->revisados;

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRevisadoTable extends Migration
+class CreateTPagosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateRevisadoTable extends Migration
      */
     public function up()
     {
-        Schema::create('revisado', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::create('t_pagos', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string ('tipoPagos');
         });
     }
 
@@ -26,6 +26,6 @@ class CreateRevisadoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('revisado');
+        Schema::dropIfExists('t_pagos');
     }
 }

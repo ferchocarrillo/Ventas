@@ -116,6 +116,7 @@ class PortaDigitalController extends Controller
         $portadigitals->fnacimiento     = $request ->fnacimiento;
         $portadigitals->origen          = $request ->origen;
         $portadigitals->ngrabacion      = $request ->ngrabacion;
+        $portadigitals->orden           = $request ->orden;
         $portadigitals->observaciones   = $request ->observaciones;
         $portadigitals->agente          = $user_id;
         $portadigitals->revisados       = $request ->revisados;

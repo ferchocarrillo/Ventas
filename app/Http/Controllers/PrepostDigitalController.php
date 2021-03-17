@@ -113,6 +113,7 @@ class PrepostDigitalController extends Controller
         $prepost->planventa            = $request ->plan;
         $prepost->activacion           = $request ->activacion;
         $prepost->token                = $request ->token;
+        $prepost->orden                = $request ->orden;
         $prepost->observaciones        = $request ->observaciones;
         $prepost->agente               = $user_id;
         $prepost->revisados            = $request ->revisados;

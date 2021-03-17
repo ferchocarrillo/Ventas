@@ -27,6 +27,9 @@ use App\Corte;
 use App\Revisados;
 use App\User;
 use stdClass;
+use App\Equipos;
+use App\tPlanes;
+use App\tPago;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\PhoenixExport;
 
@@ -64,9 +67,12 @@ class PhoenixController extends Controller
             $planadquiere = Planadquiere::all();
             $origen = Origen::all();
             $usuarios = User::all();
+            $modelos = Equipos::all();
+            $tplanes = tPlanes::all();
+            $tipoPagoses = tPago::all();
 
 
-             return view('phoenix.create',compact('depto','tipoCliente','origen','planadquiere', 'usuarios'));
+             return view('phoenix.create',compact('depto','tipoPagoses','tplanes','modelos','tipoCliente','origen','planadquiere', 'usuarios'));
     }
 
     /**
@@ -92,17 +98,13 @@ class PhoenixController extends Controller
         $phoenixes->direccion       = $request ->direccion;
         $phoenixes->nip             = $request ->nip;
         $phoenixes->tipocliente     = $request ->tipocliente;
-        $phoenixes->planadquiere    = $request ->planadquiere;
         $phoenixes->selector        = $request ->selector;
         $phoenixes->ncontacto       = $request ->ncontacto;
-        $phoenixes->imei            = $request ->imei;
         $phoenixes->modelo          = $request ->modelo;
-        $phoenixes->fvc             = $request ->fvc;
-        $phoenixes->fentrega        = $request ->fentrega;
-        $phoenixes->fexpedicion     = $request ->fexpedicion;
-        $phoenixes->fnacimiento     = $request ->fnacimiento;
-        $phoenixes->origen          = $request ->origen;
+        $phoenixes->tplanes         = $request ->tplanes;
+        $phoenixes->tipoPagos       = $request ->tipoPagos;
         $phoenixes->ngrabacion      = $request ->ngrabacion;
+        $phoenixes->orden           = $request ->orden;
         $phoenixes->observaciones   = $request ->observaciones;
         $phoenixes->agente          = $user_id;
         $phoenixes->revisados       = $request ->revisados;

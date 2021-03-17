@@ -104,9 +104,10 @@ class FijaController extends Controller
         $fijas->Svas_lineas     = $request ->Svas_lineas;
         $fijas->velocidad       = $request ->velocidad;
         $fijas->tecnologia      = $request ->tecnologia;
+        $fijas->orden           = $request ->orden;
         $fijas->observacion     = $request ->observacion;
         $fijas->agente          = $user_id;
-        $fijas->revisados        = $request ->revisados;
+        $fijas->revisados       = $request ->revisados;
         $fijas->estadorevisado  = $request ->estadorevisado;
         $fijas->obs2            = $request ->obs2;
         $fijas->backoffice      = $user_id;

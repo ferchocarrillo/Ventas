@@ -115,6 +115,7 @@ class PortaController extends Controller
         $portas->fnacimiento     = $request ->fnacimiento;
         $portas->origen          = $request ->origen;
         $portas->ngrabacion      = $request ->ngrabacion;
+        $portas->orden           = $request ->orden;
         $portas->observaciones   = $request ->observaciones;
         $portas->agente          = $user_id;
         $portas->revisados       = $request ->revisados;

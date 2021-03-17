@@ -17,5 +17,11 @@ class DatabaseSeeder extends Seeder
         $this->call(DepartamentosSeeder::class);
         //$this->call(PlanadquieresSeeder::class);
         $this->call(EquipoSeeder::class);
+        $this->call(tPlanSeeder::class);
+        $this->call(TPagoSeeder::class);
+
+
+
+
     }
 }

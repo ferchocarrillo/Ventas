@@ -86,7 +86,7 @@
                         @endforeach
                         </select>
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-4">
                         <select name="activacion" id="activacion" class="form-control"  required>
                         <option value="0">Activacion</option>
                          @foreach($activacion as $activaciones)
@@ -94,9 +94,12 @@
                         @endforeach
                         </select>
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-4">
                         <input type="number" id ="token" name="token" class="form-control"  placeholder="Token" required>
                         </div>
+                        <div class="form-group col-md-4">
+                            <input type="orden" id ="orden" name="orden" class="form-control" placeholder="Numero de Orden" required>
+                            </div>
                         <div class="form-group col-md-12">
                         <textarea  id ="observaciones" name="observaciones" class="form-control" rows="3" placeholder="Observaciones" required></textarea>
                         </div>
