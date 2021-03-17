@@ -49,7 +49,7 @@ use Illuminate\Support\Facades\Gate;
 
     Route::post('/app/Ciudades', array('as' => 'Ciudad', 'uses' => 'selectsController@Ciudad'));
     Route::post('/app/Revisados', array('as' => 'Revisado', 'uses' => 'selects2Controller@Revisados'));
-   
+
     Route::resource('porta', PortaController::class);
     Route::resource('prepost', PrepostController::class);
     Route::resource('upgrade', UpgradeController::class);
@@ -58,7 +58,12 @@ use Illuminate\Support\Facades\Gate;
     Route::resource('portadigital', PortaDigitalController::class);
     Route::resource('upgradedigital', UpgradeDigitalController::class);
     Route::resource('prepostdigital', PrepostDigitalController::class);
+    Route::resource('lineanueva', LineaNuevaController::class);
+    Route::resource('phoenix', PhoenixController::class);
     Route::resource('fijadigital', FijaDigitalController::class);
+
+
+
 
     Route::resource('portaplnew', PortaPlanesNuevosController::class);
     Route::resource('prepostplnew', PrepostPlanesNuevosController::class);
@@ -73,6 +78,10 @@ use Illuminate\Support\Facades\Gate;
     Route::get('upgradeDigital-list-excel', 'UpgradeDigitalController@exportExcel')->name('upgradeDigital.excel');
     Route::get('prepostDigital-list-excel', 'PrepostDigitalController@exportExcel')->name('prepostDigital.excel');
     Route::get('fijaDigital-list-excel', 'FijaDigitalController@exportExcel')->name('fijaDigital.excel');
+    Route::get('portadigital-list-excel', 'PortaDigitalController@exportExcel')->name('portadigital.excel');
+    Route::get('lineanueva-list-excel', 'lineaNuevaController@exportExcel')->name('lineanueva.excel');
+    Route::get('phoenix-list-excel', 'PhoenixController@exportExcel')->name('phoenix.excel');
+
 
 
     Route::get('/search','PortaController@search');
@@ -81,8 +90,10 @@ use Illuminate\Support\Facades\Gate;
     Route::get('/searchupgrade','UpgradeController@searchupgrade');
     Route::get('/searchportadigital','PortaDigitalController@searchportadigital');
     Route::get('/searchdigitalupgrade','UpgradeDigitalController@searchdigitalupgrade');
-    Route::get('/searchdigitalprepost','PrepostDigitalController@searchdigitalprepost'); 
-    Route::get('/searchdigitalfija','FijaDigitalController@searchdigitalfija'); 
+    Route::get('/searchdigitalprepost','PrepostDigitalController@searchdigitalprepost');
+    Route::get('/searchdigitalfija','FijaDigitalController@searchdigitalfija');
+    Route::get('/searchlineanueva','lineaNuevaController@searchlineanueva');
+    Route::get('/searchphoenix','PhoenixController@searchphoenix');
 
 
     Route::get('/searchusers','UserController@searchusers');
@@ -90,5 +101,5 @@ use Illuminate\Support\Facades\Gate;
 
     Route::get('/charts', 'ChartController@index')->name('charts');
 
-    
+
 
