@@ -24,7 +24,7 @@
         <div class="form-group col-md-6">
             <label for="nombres">Nombres</label>
                <input type="text"
-               class="form-control-new"
+               class="form-control"
                id="nombres"
                placeholder="Nombres"
                name="nombres"
@@ -34,7 +34,7 @@
           <div class="form-group col-md-6">
             <label for="documento">Documento</label>
                <input type="number"
-               class="form-control-new"
+               class="form-control"
                id="documento"
                placeholder="Documento"
                name="documento"
@@ -44,7 +44,7 @@
           <div class="form-group col-md-6">
             <label for="fexpedicion">Fecha de expedicion</label>
                <input type="date"
-               class="form-control-new"
+               class="form-control"
                id="fexpedicion"
                placeholder="Fecha de expedicion"
                name="fexpedicion"
@@ -53,7 +53,7 @@
           <div class="form-group col-md-6">
             <label for="correo">Correo Electronico</label>
                <input type="text"
-               class="form-control-new"
+               class="form-control"
                id="correo"
                placeholder="Correo"
                name="correo"
@@ -64,7 +64,7 @@
           <div class="form-group col-md-6">
             <label for="departamento">Departamento</label>
                <input type="text"
-               class="form-control-new"
+               class="form-control"
                id="departamento"
                placeholder="Departamento"
                name="departamento"
@@ -74,7 +74,7 @@
           <div class="form-group col-md-6">
             <label for="ciudad">Ciudad</label>
                <input type="text"
-               class="form-control-new"
+               class="form-control"
                id="ciudad"
                placeholder="ciudad"
                name="Ciudad"
@@ -83,7 +83,7 @@
           <div class="form-group col-md-6">
             <label for="barrio">Barrio</label>
                <input type="text"
-               class="form-control-new"
+               class="form-control"
                id="barrio"
                placeholder="barrio"
                name="Barrio"
@@ -92,7 +92,7 @@
           <div class="form-group col-md-6">
             <label for="direccion">Direccion</label>
                <input type="text"
-               class="form-control-new"
+               class="form-control"
                id="direccion"
                placeholder="direccion"
                name="Direccion"
@@ -100,7 +100,7 @@
           </div>
           <div class="form-group col-md-6">
                <label for="estrato">Estrato</label>
-               <input type="number" class="form-control-new"
+               <input type="number" class="form-control"
                id="estrato"
                placeholder="Estrato"
                name="estrato"
@@ -109,7 +109,7 @@
 
           <div class="form-group col-md-6">
             <label for="ngrabacion">Numero de grabacion</label>
-            <input type="number" class="form-control-new"
+            <input type="number" class="form-control"
             id="ngrabacion"
             placeholder="Numero de grabacion"
             name="ngrabacion"
@@ -117,7 +117,7 @@
        </div>
        <div class="form-group col-md-6">
         <label for="ncontacto">Numero de contacto</label>
-        <input type="number" class="form-control-new"
+        <input type="number" class="form-control"
         id="ncontacto"
         placeholder="Numero de contacto"
         name="ncontacto"
@@ -126,7 +126,7 @@
 
        <div class="form-group col-md-6">
         <label for="producto">Producto</label>
-        <input type="text" class="form-control-new"
+        <input type="text" class="form-control"
         id="producto"
         placeholder="Producto"
         name="producto"
@@ -136,7 +136,7 @@
         <div class="row">
             <div class="col col-lg-1">
             <label for="fox">Fox</label>
-            <br><br><input type="text" class="form-control-new"
+            <br><br><input type="text" class="form-control"
             id="fox"
             placeholder="0"
             name="fox"
@@ -146,7 +146,7 @@
          <div class="col col-lg-1">
             <label for="hbo">Hbo</label>
             <br><br>
-            <input type="text" class="form-control-new"
+            <input type="text" class="form-control"
         id="hbo"
         placeholder="0"
         name="hbo"
@@ -154,7 +154,7 @@
           </div>
           <div class="col col-lg-1">
             <label for="cds_movil">Cds movil</label>
-        <input type="text" class="form-control-new"
+        <input type="text" class="form-control"
         id="cds_movil"
         placeholder="0"
         name="cds_movil"
@@ -162,7 +162,7 @@
           </div>
           <div class="col col-lg-1">
             <label for="cds_fija">Cds fija</label>
-            <br><br><input type="text" class="form-control-new"
+            <br><br><input type="text" class="form-control"
         id="cds_fija"
         placeholder="0"
         name="cds_fija"
@@ -170,7 +170,7 @@
           </div>
           <div class="col col-lg-1">
             <label for="Paquete_Adultos">P adultos</label>
-            <input type="text" class="form-control-new"
+            <input type="text" class="form-control"
             id="Paquete_Adultos"
             placeholder="0"
             name="Paquete_Adultos"
@@ -178,7 +178,7 @@
           </div>
           <div class="col col-lg-1">
             <label for="Decodificador">Deco</label>
-            <br><br><input type="text" class="form-control-new"
+            <br><br><input type="text" class="form-control"
         id="Decodificador"
         placeholder="0"
         name="Decodificador"
@@ -187,7 +187,7 @@
 
           <div class="col col-lg-1">
             <label for="svas_lineas">Svas_lineas</label>
-            <br><br><input type="text" class="form-control-new"
+            <br><br><input type="text" class="form-control"
             id="svas_lineas"
             placeholder="0"
             name="svas_lineas"
@@ -195,7 +195,7 @@
           </div>
           <div class="form-group col-lg-2">
             <label for="velocidad">Velocidad</label>
-            <br><br><input type="text" class="form-control-new"
+            <br><br><input type="text" class="form-control"
             id="velocidad"
             placeholder="Velocidad"
             name="velocidad"
@@ -203,7 +203,7 @@
            </div>
            <div class="form-group col-lg-3">
             <label for="tecnologia">Tecnologia</label>
-            <br><br><input type="text" class="form-control-new"
+            <br><br><input type="text" class="form-control"
             id="tecnologia"
             placeholder="Tecnologia"
             name="tecnologia"
@@ -217,7 +217,7 @@
 
     <div class="form-group col-md-6">
         <label for="orden">Numero de Orden</label>
-        <input type="text" class="form-control-new"
+        <input type="text" class="form-control"
         id="orden"
         placeholder="orden"
         name="orden"
@@ -229,7 +229,7 @@
 
        <div class="form-group col-md-6">
         <label for="observacion">Observacion</label>
-        <input type="text" class="form-control-new"
+        <input type="text" class="form-control"
         id="observacion"
         placeholder="observacion"
         name="observacion"
@@ -239,7 +239,7 @@
        <div class="form-group col-md-6">
         <label for="revisados">Revision</label>
 
-         <select name="revisados" id="revisados" class="form-control-new"  required>
+         <select name="revisados" id="revisados" class="form-control"  required>
             <option value="">Revisión</option>
             @foreach($revisadoses as $revisados)
                 <option value="{{ $revisados->estado}}">{{ $revisados->estado }}</option>
@@ -249,7 +249,7 @@
 
         <div class="form-group col-md-6">
          <label for="estadorevisados">Estado de la revision</label>
-         <select name="estadorevisado" id="estadorevisado" class="form-control-new" placeholder="Estado de la revisión" required></select>
+         <select name="estadorevisado" id="estadorevisado" class="form-control" placeholder="Estado de la revisión" required></select>
      </div>
 
 
@@ -258,7 +258,7 @@
 
 
     <div class="form-group col-md-12">
-        <textarea class="form-control-new"  id ="obs2" name="obs2" rows="3" placeholder="Observaciones BackOficce"></textarea>
+        <textarea class="form-control"  id ="obs2" name="obs2" rows="3" placeholder="Observaciones BackOficce"></textarea>
         </div>
 
 </div>

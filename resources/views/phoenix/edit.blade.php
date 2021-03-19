@@ -23,7 +23,7 @@
    <div class="form-row">
    <div class="form-group col-md-6">
         <label for="number">Numero</label>
-        <input type="number" class="form-control-new"
+        <input type="number" class="form-control"
         id="numero"
         placeholder="Numero"
         name="numero"
@@ -33,7 +33,7 @@
   <div class="form-group col-md-6">
     <label for="documento">Documento</label>
        <input type="number"
-       class="form-control-new"
+       class="form-control"
        id="documento"
        placeholder="Documento"
        name="documento"
@@ -43,7 +43,7 @@
   <div class="form-group col-md-6">
     <label for="nombres">Nombres</label>
        <input type="text"
-       class="form-control-new"
+       class="form-control"
        id="nombres"
        placeholder="Nombres"
        name="nombres"
@@ -53,7 +53,7 @@
   <div class="form-group col-md-6">
     <label for="apellidos">Apellidos</label>
        <input type="text"
-       class="form-control-new"
+       class="form-control"
        id="apellidos"
        placeholder="Apellidos"
        name="apellidos"
@@ -63,7 +63,7 @@
   <div class="form-group col-md-6">
     <label for="correo">Correo</label>
        <input type="text"
-       class="form-control-new"
+       class="form-control"
        id="correo"
        placeholder="Correo"
        name="correo"
@@ -72,7 +72,7 @@
   <div class="form-group col-md-6">
     <label for="selector">Selector</label>
        <input type="text"
-       class="form-control-new"
+       class="form-control"
        id="selector"
        placeholder="Selector"
        name="selector"
@@ -83,7 +83,7 @@
   <div class="form-group col-md-6">
     <label for="departamento">Departamento</label>
        <input type="text"
-       class="form-control-new"
+       class="form-control"
        id="departamento"
        placeholder="Departamento"
        name="departamento"
@@ -93,7 +93,7 @@
   <div class="form-group col-md-6">
     <label for="ciudad">Ciudad</label>
        <input type="text"
-       class="form-control-new"
+       class="form-control"
        id="ciudad"
        placeholder="ciudad"
        name="Ciudad"
@@ -102,7 +102,7 @@
   <div class="form-group col-md-6">
     <label for="barrio">Barrio</label>
        <input type="text"
-       class="form-control-new"
+       class="form-control"
        id="barrio"
        placeholder="barrio"
        name="Barrio"
@@ -111,7 +111,7 @@
   <div class="form-group col-md-6">
     <label for="direccion">Direccion</label>
        <input type="text"
-       class="form-control-new"
+       class="form-control"
        id="direccion"
        placeholder="direccion"
        name="Direccion"
@@ -120,7 +120,7 @@
   <div class="form-group col-md-6">
     <label for="nip">Nip</label>
        <input type="number"
-       class="form-control-new"
+       class="form-control"
        id="nip"
        placeholder="Nip"
        name="nip"
@@ -129,7 +129,7 @@
   <div class="form-group col-md-6">
     <label for="tipocliente">Tipo cliente</label>
        <input type="text"
-       class="form-control-new"
+       class="form-control"
        id="tipocliente"
        placeholder="tipo cliente"
        name="tipocliente"
@@ -138,7 +138,7 @@
   {{--  <div class="form-group col-md-6">
     <label for="planadquiere">Plan adquiere</label>
        <input type="number"
-       class="form-control-new"
+       class="form-control"
        id="planadquiere"
        placeholder="plan adquiere"
        name="planadquiere"
@@ -147,7 +147,7 @@
   <div class="form-group col-md-6">
     <label for="ncontacto">Numero de contacto</label>
        <input type="number"
-       class="form-control-new"
+       class="form-control"
        id="ncontacto"
        placeholder="numero de contacto"
        name="ncontacto"
@@ -156,7 +156,7 @@
   {{--  <div class="form-group col-md-6">
     <label for="imei">Imei</label>
        <input type="number"
-       class="form-control-new"
+       class="form-control"
        id="imei"
        placeholder="Imei"
        name="imei"
@@ -166,7 +166,7 @@
   <div class="form-group col-md-6">
     <label for="imei">Modelo</label>
        <input type="text"
-       class="form-control-new"
+       class="form-control"
        id="modelo"
        placeholder="modelo"
        name="modelo"
@@ -176,7 +176,7 @@
   <div class="form-group col-md-3">
     <label for="tipoP">Tipo de Planes</label>
        <input type="text"
-       class="form-control-new"
+       class="form-control"
        id="tipoP"
        placeholder="Tipo de Planes"
        name="tipoP"
@@ -185,7 +185,7 @@
   <div class="form-group col-md-3">
     <label for="tipoPagos">Tipo de Pago</label>
        <input type="text"
-       class="form-control-new"
+       class="form-control"
        id="tipoPagos"
        placeholder="Tipo de Pago"
        name="tipoPagos"
@@ -196,7 +196,7 @@
   {{--  <div class="form-group col-md-6">
     <label for="fvc">FVC</label>
        <input type="date"
-       class="form-control-new"
+       class="form-control"
        id="fvc"
        placeholder="fvc"
        name="fvc"
@@ -205,7 +205,7 @@
   <div class="form-group col-md-6">
     <label for="fentrega">Fecha de entrega</label>
        <input type="date"
-       class="form-control-new"
+       class="form-control"
        id="fentrega"
        placeholder="Fecha de entrega"
        name="fentrega"
@@ -214,7 +214,7 @@
   <div class="form-group col-md-6">
     <label for="fexpedicion">Fecha de expedicion</label>
        <input type="date"
-       class="form-control-new"
+       class="form-control"
        id="fexpedicion"
        placeholder="Fecha de expedicion"
        name="fexpedicion"
@@ -223,7 +223,7 @@
   <div class="form-group col-md-6">
     <label for="fnacimiento">Fecha de nacimiento</label>
        <input type="date"
-       class="form-control-new"
+       class="form-control"
        id="fnacimiento"
        placeholder="Fecha de nacimiento"
        name="fnacimiento"
@@ -232,7 +232,7 @@
   <div class="form-group col-md-6">
     <label for="origen">Origen de la migracion</label>
        <input type="text"
-       class="form-control-new"
+       class="form-control"
        id="origen"
        placeholder="Origen"
        name="origen"
@@ -241,7 +241,7 @@
   <div class="form-group col-md-3">
     <label for="ngrabacion">Numero de grabacion</label>
        <input type="number"
-       class="form-control-new"
+       class="form-control"
        id="ngrabacion"
        placeholder="Numero de grabacion"
        name="ngrabacion"
@@ -250,7 +250,7 @@
   <div class="form-group col-md-3">
     <label for="orden">Numero de Orden</label>
        <input type="number"
-       class="form-control-new"
+       class="form-control"
        id="orden"
        placeholder="Numero de Orden"
        name="orden"
@@ -260,7 +260,7 @@
   <div class="form-group col-md-12">
     <label for="ngrabacion">Observaciones</label>
     <input type="text"
-    class="form-control-new"
+    class="form-control"
     id ="observaciones"
     name="observaciones"
     placeholder="Observaciones"
@@ -270,7 +270,7 @@
    <div class="form-group col-md-6">
     <label for="revisados">Revision</label>
 
-     <select name="revisados" id="revisados" class="form-control-new"  required>
+     <select name="revisados" id="revisados" class="form-control"  required>
         <option value="">Revisión</option>
         @foreach($revisadoses as $revisados)
             <option value="{{ $revisados->estado}}">{{ $revisados->estado }}</option>
@@ -280,10 +280,10 @@
 
     <div class="form-group col-md-6">
      <label for="estadorevisados">Estado de la revision</label>
-     <select name="estadorevisado" id="estadorevisado" class="form-control-new" placeholder="Estado de la revisión" required></select>
+     <select name="estadorevisado" id="estadorevisado" class="form-control" placeholder="Estado de la revisión" required></select>
  </div>
 <div class="form-group col-md-12">
-    <textarea class="form-control-new"  id ="obs2" name="obs2" rows="3" placeholder="Observaciones BackOficce"></textarea>
+    <textarea class="form-control"  id ="obs2" name="obs2" rows="3" placeholder="Observaciones BackOficce"></textarea>
     </div>
 
 

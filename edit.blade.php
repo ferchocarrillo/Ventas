@@ -11,12 +11,12 @@
             </body>
             <center style="background-image: linear-gradient(#EAF2F8, #AAB7B8);">
                 <img src="\theme\images\pngegg.png" float="left" height="120" width="300">
-                <h3 aline="center">Editar Gestion Fija DIGITAL</h3>
+                <h3 aline="center">Editar Gestion Fija</h3>
             </center>
 
 
 
-<form name="f1" action="{{ url('/fijadigital/'.$fijas->id)}}" method="POST" enctype="multipart/form-data" class="form-horizontal">
+<form name="f1" action="{{ url('/fija/'.$fijas->id)}}" method="POST" enctype="multipart/form-data" class="form-horizontal">
     @csrf
     @method('PATCH')
 
@@ -24,7 +24,7 @@
         <div class="form-group col-md-6">
             <label for="nombres">Nombres</label>
                <input type="text"
-               class="form-control"
+              
                id="nombres"
                placeholder="Nombres"
                name="nombres"
@@ -60,18 +60,8 @@
                value="{{ old('correo' , $fijas->correo)}}">
           </div>
 
-          <div class="form-group col-md-4">
-            <label for="selector">Selector</label>
-               <input type="text"
-               class="form-control"
-               id="selector"
-               placeholder="Selector"
-               name="selector"
-               value="{{ old('selector' , $fijas->selector)}}">
-          </div>
 
-
-          <div class="form-group col-md-4">
+          <div class="form-group col-md-6">
             <label for="departamento">Departamento</label>
                <input type="text"
                class="form-control"
@@ -81,7 +71,7 @@
                value="{{ old('departamento' , $fijas->departamento)}}">
           </div>
 
-          <div class="form-group col-md-4">
+          <div class="form-group col-md-6">
             <label for="ciudad">Ciudad</label>
                <input type="text"
                class="form-control"
@@ -222,14 +212,19 @@
 
         </div>
     </div>
-   <div class="form-group col-md-6">
-    <label for="orden">Numero de Orden</label>
-    <input type="text" class="form-control"
-    id="orden"
-    placeholder="orden"
-    name="orden"
-    value="{{ old('orden', $fijas->orden)}}">
-   </div>
+
+
+
+    <div class="form-group col-md-6">
+        <label for="orden">Numero de Orden</label>
+        <input type="text" class="form-control"
+        id="orden"
+        placeholder="orden"
+        name="orden"
+        value="{{ old('orden', $fijas->orden)}}">
+       </div>
+
+
 
 
        <div class="form-group col-md-6">
@@ -271,7 +266,7 @@
     <input class="btn btn-lg btn-primary" type="submit" value="EDITAR">
 
 
-    <a href="{{route('fijadigital.index')}}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">VOLVER</a>
+    <a href="{{route('fija.index')}}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">VOLVER</a>
 
     </div>
 
@@ -298,7 +293,7 @@
 
     <script>
     Swal.fire(
-      'FIJA DIGITAL',
+      'FIJA',
       'Aqui podras editar los datos ya registrados',
       'success'
     )

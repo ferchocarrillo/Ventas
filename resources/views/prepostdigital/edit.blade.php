@@ -20,7 +20,7 @@
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="number">Numero</label>
-             <input type="number" class="form-control-new"
+             <input type="number" class="form-control"
              id="numero"
              placeholder="Numero"
              name="numero"
@@ -30,7 +30,7 @@
         <div class="form-group col-md-6">
             <label for="nombres">Nombres</label>
                <input type="text"
-               class="form-control-new"
+               class="form-control"
                id="nombres"
                placeholder="Nombres"
                name="nombres"
@@ -40,7 +40,7 @@
         <div class="form-group col-md-6">
             <label for="documento">Documento</label>
                <input type="number"
-               class="form-control-new"
+               class="form-control"
                id="documento"
                placeholder="Documento"
                name="documento"
@@ -50,7 +50,7 @@
           <div class="form-group col-md-6">
             <label for="fexpedicion">Fecha de expedicion</label>
                <input type="date"
-               class="form-control-new"
+               class="form-control"
                id="fexpedicion"
                placeholder="Fecha de expedicion"
                name="fexpedicion"
@@ -60,7 +60,7 @@
           <div class="form-group col-md-6">
             <label for="tipocliente">Tipo cliente</label>
                <input type="text"
-               class="form-control-new"
+               class="form-control"
                id="tipocliente"
                placeholder="tipo cliente"
                name="tipocliente"
@@ -70,7 +70,7 @@
           <div class="form-group col-md-6">
             <label for="correo">Correo</label>
                <input type="text"
-               class="form-control-new"
+               class="form-control"
                id="correo"
                placeholder="Correo"
                name="correo"
@@ -79,7 +79,7 @@
           <div class="form-group col-md-6">
             <label for="selector">Selector</label>
                <input type="text"
-               class="form-control-new"
+               class="form-control"
                id="selector"
                placeholder="Selector"
                name="selector"
@@ -89,7 +89,7 @@
           <div class="form-group col-md-6">
             <label for="departamento">Departamento</label>
                <input type="text"
-               class="form-control-new"
+               class="form-control"
                id="departamento"
                placeholder="Departamento"
                name="departamento"
@@ -99,7 +99,7 @@
           <div class="form-group col-md-6">
             <label for="ciudad">Ciudad</label>
                <input type="text"
-               class="form-control-new"
+               class="form-control"
                id="ciudad"
                placeholder="ciudad"
                name="Ciudad"
@@ -109,7 +109,7 @@
           <div class="form-group col-md-6">
             <label for="barrio">Barrio</label>
                <input type="text"
-               class="form-control-new"
+               class="form-control"
                id="barrio"
                placeholder="barrio"
                name="Barrio"
@@ -119,7 +119,7 @@
           <div class="form-group col-md-6">
             <label for="direccion">Direccion</label>
                <input type="text"
-               class="form-control-new"
+               class="form-control"
                id="direccion"
                placeholder="direccion"
                name="Direccion"
@@ -128,7 +128,7 @@
 
           <div class="form-group col-md-6">
                <label for="corte">Corte</label>
-               <input type="number" class="form-control-new"
+               <input type="number" class="form-control"
                id="corte"
                placeholder="Corte"
                name="corte"
@@ -137,7 +137,7 @@
 
           <div class="form-group col-md-3">
             <label for="planventa">Plan venta</label>
-            <input type="number" class="form-control-new"
+            <input type="number" class="form-control"
             id="planventa"
             placeholder="Plan venta"
             name="planventa"
@@ -146,7 +146,7 @@
 
            <div class="form-group col-md-3">
             <label for="activacion">Activacion</label>
-            <input type="text" class="form-control-new"
+            <input type="text" class="form-control"
             id="activacion"
             placeholder="Activacion"
             name="activacion"
@@ -155,7 +155,7 @@
 
            <div class="form-group col-md-3">
             <label for="token">Token</label>
-            <input type="number" class="form-control-new"
+            <input type="number" class="form-control"
             id="token"
             placeholder="Token"
             name="token"
@@ -164,7 +164,7 @@
 
            <div class="form-group col-md-3">
             <label for="orden">Numero de Orden</label>
-            <input type="number" class="form-control-new"
+            <input type="number" class="form-control"
             id="orden"
             placeholder="Numero de Orden"
             name="orden"
@@ -173,7 +173,7 @@
 
            <div class="form-group col-md-12">
             <label for="observacion">Observacion</label>
-            <input type="text" class="form-control-new"
+            <input type="text" class="form-control"
             id="observaciones"
             placeholder="observaciones"
             name="observaciones"
@@ -183,7 +183,7 @@
            <div class="form-group col-md-6">
             <label for="revisados">Revision</label>
 
-             <select name="revisados" id="revisados" class="form-control-new"  required>
+             <select name="revisados" id="revisados" class="form-control"  required>
                 <option value="">Revisión</option>
                 @foreach($revisadoses as $revisados)
                     <option value="{{ $revisados->estado}}">{{ $revisados->estado }}</option>
@@ -193,12 +193,12 @@
 
             <div class="form-group col-md-6">
              <label for="estadorevisados">Estado de la revision</label>
-             <select name="estadorevisado" id="estadorevisado" class="form-control-new" placeholder="Estado de la revisión" required></select>
+             <select name="estadorevisado" id="estadorevisado" class="form-control" placeholder="Estado de la revisión" required></select>
          </div>
 
 
     <div class="form-group col-md-12">
-        <textarea class="form-control-new"  id ="obs2" name="obs2" rows="3" placeholder="Observaciones BackOficce"></textarea>
+        <textarea class="form-control"  id ="obs2" name="obs2" rows="3" placeholder="Observaciones BackOficce"></textarea>
         </div>
 
 
